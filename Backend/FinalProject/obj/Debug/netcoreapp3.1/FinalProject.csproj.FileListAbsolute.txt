@@ -192,3 +192,7 @@ C:\Users\HP\Desktop\CodeAcademy\FinalProject\Backend\FinalProject\obj\Debug\netc
 C:\Users\HP\Desktop\CodeAcademy\FinalProject\Backend\FinalProject\obj\Debug\netcoreapp3.1\Razor\Areas\AdminArea\Views\AboutTop\Details.cshtml.g.cs
 C:\Users\HP\Desktop\CodeAcademy\FinalProject\Backend\FinalProject\obj\Debug\netcoreapp3.1\Razor\Areas\AdminArea\Views\AboutTop\Create.cshtml.g.cs
 C:\Users\HP\Desktop\CodeAcademy\FinalProject\Backend\FinalProject\obj\Debug\netcoreapp3.1\Razor\Areas\AdminArea\Views\AboutTop\Edit.cshtml.g.cs
+C:\Users\HP\Desktop\CodeAcademy\FinalProject\Backend\FinalProject\obj\Debug\netcoreapp3.1\Razor\Areas\AdminArea\Views\AboutLi\Index.cshtml.g.cs
+C:\Users\HP\Desktop\CodeAcademy\FinalProject\Backend\FinalProject\obj\Debug\netcoreapp3.1\Razor\Areas\AdminArea\Views\AboutLi\Create.cshtml.g.cs
+C:\Users\HP\Desktop\CodeAcademy\FinalProject\Backend\FinalProject\obj\Debug\netcoreapp3.1\Razor\Areas\AdminArea\Views\AboutLi\Details.cshtml.g.cs
+C:\Users\HP\Desktop\CodeAcademy\FinalProject\Backend\FinalProject\obj\Debug\netcoreapp3.1\Razor\Areas\AdminArea\Views\AboutLi\Edit.cshtml.g.cs

@@ -1,0 +1,32 @@
+﻿@model AboutLi
+@{
+    ViewData["Title"] = "Details";
+    Layout = "~/Areas/AdminArea/Views/Shared/_AdminLayout.cshtml";
+}
+
+<div class="container my-5">
+    <div class="card">
+        <div class="card-header">
+            About Text detail
+        </div>
+        <table class="table table-bordered">
+            <thead>
+                <tr>
+                    <th>
+                        Text
+                    </th>
+          
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td>
+                        @Html.Raw(Model.Text)
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+
+    </div>
+</div>
+
