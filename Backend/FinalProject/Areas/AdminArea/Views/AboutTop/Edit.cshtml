@@ -1,8 +1,10 @@
-﻿@model AboutTopCreateVM
+﻿@model AboutTop
 @{
-    ViewData["Title"] = "Create";
+    ViewData["Title"] = "Edit";
     Layout = "~/Areas/AdminArea/Views/Shared/_AdminLayout.cshtml";
 }
+
+
 
 <div class="main-panel">
     <div class="content-wrapper">
@@ -12,9 +14,12 @@
                 <div class="card">
                     <div class="card-body">
                         <p class="card-description">
-                            <strong>AboutTop</strong>
+                            AboutTop
                         </p>
-                        <form asp-controller="AboutTop" asp-action="Create" enctype="multipart/form-data" class="forms-sample" method="post">
+                        <div class="my-3 images">
+                            <img src="~/assets/images/subpage/about/@Model.Image" style="width:250px; height:250px" alt="Alternate Text" />
+                        </div>
+                        <form asp-controller="AboutTop" asp-action="Edit" enctype="multipart/form-data" class="forms-sample" method="post">
                             <div class="form-group">
                                 <label asp-for="SubTitle">SubTitle</label>
                                 <input class="form-control" asp-for="SubTitle">
