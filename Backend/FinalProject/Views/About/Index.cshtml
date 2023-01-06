@@ -1,0 +1,76 @@
+﻿@model AboutVM
+@{
+    ViewData["Title"] = "Index";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<main class="main">
+
+    <nav class="breadcrumb-nav has-border">
+        <div class="container">
+            <ul class="breadcrumb">
+                <li><a asp-controller="Home" asp-action="Index">Home</a></li>
+                <li>About Us</li>
+            </ul>
+        </div>
+    </nav>
+    <div class="page-content about-page">
+        <div class="container">
+            <section class="row align-items-center">
+                <div class="col-lg-6">
+                    <figure>
+                        <img src="~/assets/images/subpage/about/@Model.AboutTop.Image" width="610" height="450" alt="image" />
+                    </figure>
+                </div>
+                <div class="col-lg-6">
+                    <div class="pl-lg-8 pr-lg-3 pt-5 pt-lg-0">
+                        <h4 class="text-uppercase text-body font-weight-normal ls-1 mb-4">
+                            @Model.AboutTop.SubTitle
+                        </h4>
+                        <h2 class="desc-title mb-4">@Model.AboutTop.Title</h2>
+                        <p class="mb-3 ml-1">
+                            @Model.AboutTop.Description
+                        </p>
+                        <p class="mb-8 ml-1">
+                            @Model.AboutTop.EndDescription
+                        </p>
+                        <a asp-controller="Shop" asp-action="Index" class="btn btn-outline btn-dark ml-1 mb-1">
+                            @Model.AboutTop.Button<i class="p-icon-arrow-long-right"></i>
+                        </a>
+                    </div>
+                </div>
+            </section>
+        </div>
+
+        <div class="container">
+            <section class="row align-items-center">
+                <div class="col-lg-6">
+                    <div class="pr-lg-3">
+                        <h4 class="text-uppercase text-body font-weight-normal ls-1 mt-5 mb-4">
+                            @Model.AboutBottom.Title
+                        </h4>
+                        <h2 class="desc-title mb-4">@Model.AboutBottom.Description</h2>
+                        <ul class="list list-circle text-dim">
+                            @foreach (var li in Model.AboutLi)
+                            {
+                                <li class="mb-4">
+                                @li.Text
+                            </li>
+                            }
+                            
+                           
+                        </ul>
+                    </div>
+                </div>
+                <div class="col-lg-6">
+                    <figure>
+                        <img src="~/assets/images/subpage/about/@Model.AboutBottom.Image" width="610" height="450" alt="image" />
+                    </figure>
+                </div>
+            </section>
+        </div>
+
+
+    </div>
+</main>
+

@@ -1,0 +1,80 @@
+﻿@model ContactUsVM
+@{
+    ViewData["Title"] = "Index";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<main class="main">
+    
+    <nav class="breadcrumb-nav has-border">
+        <div class="container">
+            <ul class="breadcrumb">
+                <li><a asp-controller="Home" asp-action="Index">Home</a></li>
+                <li>Contact Us</li>
+            </ul>
+        </div>
+    </nav>
+    <div class="page-content contact-page">
+        <div class="container">
+            <section class="mt-10 pt-8">
+                <h2 class="title title-center mb-8">Contact Information</h2>
+                <div class="owl-carousel owl-theme row cols-lg-4 cols-md-3 cols-sm-2 cols-1 mb-10">
+                    @foreach (var info in Model.ContactInfo)
+                    {
+                        <div class="icon-box text-center">
+                            <span class="icon-box-icon mb-4">
+                                <i class="@info.Icon"></i>
+                            </span>
+                            <div class="icon-box-content">
+                                <h4 class="icon-box-title">@info.Title</h4>
+                                <p class="text-dim">@info.Description</p>
+                            </div>
+                        </div>
+
+                    }
+                    
+                </div>
+                <hr>
+            </section>
+
+            <section class="mt-10 pt-2 mb-10 pb-8">
+                <div class="row align-items-center">
+                    <div class="col-md-6">
+                        <figure>
+                            <img src="~/assets/images/subpage/contact/@Model.ContactUs.Image" width="600" height="557"
+                                 alt="About Image" />
+                        </figure>
+                    </div>
+                    <div class="col-md-6 pl-md-4 mt-8 mt-md-0">
+                        <h2 class="title mb-1">@Model.ContactUs.Title</h2>
+                        <p class="mb-6">
+                            @Model.ContactUs.Description
+                        </p>
+                        <form id="contact-form" asp-controller="Contact" asp-action="Index" method="post">
+                            <div class="row">
+                                <div class="col-md-6 mb-4">
+                                    <input type="text" placeholder="Name *" asp-for="TellUs.Name">
+                                    <span class="text-danger my-1" asp-validation-for="TellUs.Name"></span>
+                                </div>
+                                <div class="col-md-6 mb-4">
+                                    <input type="email" placeholder="Email *" asp-for="TellUs.Email">
+                                    <span class="text-danger my-1" asp-validation-for="TellUs.Email"></span>
+                                </div>
+                                <div class="col-12 mb-4">
+                                    <input type="text" placeholder="Subject *" asp-for="TellUs.Subject">
+                                    <span class="text-danger my-1" asp-validation-for="TellUs.Subject"></span>
+                                </div>
+                                <div class="col-12 mb-4">
+                                    <input asp-for="TellUs.Message" placeholder="Message *" type="text" class="form-control2" />
+                                    <span class="text-danger my-1" asp-validation-for="TellUs.Message"></span>
+                                </div>
+                            </div>
+                            <button type="submit" class="btn btn-dark">Send Message</button>
+                        </form>
+                    </div>
+                </div>
+            </section>
+        </div>
+    </div>
+</main>
+

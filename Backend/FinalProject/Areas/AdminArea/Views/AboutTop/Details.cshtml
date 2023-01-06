@@ -1,0 +1,61 @@
+﻿@model AboutTop
+@{
+    ViewData["Title"] = "Details";
+    Layout = "~/Areas/AdminArea/Views/Shared/_AdminLayout.cshtml";
+}
+
+<div class="container my-5">
+    <div class="card">
+        <div class="card-header">
+            AboutTop detail
+        </div>
+        <table class="table table-bordered">
+            <thead>
+                <tr>
+                    <th>
+                        Image
+                    </th>
+                    <th>
+                        SubTitle
+                    </th>
+                    <th>
+                        Title
+                    </th>
+                    <th>
+                        Description
+                    </th>
+                    <th>
+                        EndDescription
+                    </th>
+                    <th>
+                        Button
+                    </th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td>
+                        <img src="~/assets/images/subpage/about/@Model.Image" alt="Product" />
+                    </td>
+                    <td>
+                        @Html.Raw(Model.SubTitle)
+                    </td>
+                    <td>
+                        @Html.Raw(Model.Title)
+                    </td>
+                    <td>
+                        @Html.Raw(Model.Description)
+                    </td>
+                    <td>
+                        @Html.Raw(Model.EndDescription)
+                    </td>
+                    <td>
+                        @Html.Raw(Model.Button)
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+
+    </div>
+</div>
+

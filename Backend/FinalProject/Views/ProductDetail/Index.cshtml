@@ -1,0 +1,161 @@
+﻿@model ProductDetailVM
+@{
+    ViewData["Title"] = "Index";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<main class="main single-product">
+
+    <div class="page-content">
+        <div class="container">
+            <div class="product product-single product-simple row mb-8">
+                <div class="col-md-5 product-datails ">
+                    <div class="product-gallery">
+                        <div class="product-single-carousel ">
+                            @foreach (var product in Model.Product)
+                            {
+                                    <figure class="product-image">
+                                    <img src="~/assets/images/products/@product.ProductImages.FirstOrDefault(m => m.IsMain)?.Image"
+                                      alt="1"
+                                      width="500" height="400">
+                                    </figure>
+                            }
+                        </div>
+                        
+                    </div>
+                </div>
+                <div class="col-md-2 ">
+                    <div class="product-thumbs-wrap ">
+                        <div class="product-thumbs">
+                            @foreach (var item in Model.Product)
+                            {
+                                <div class="product-thumb">
+                                    <img src="~/assets/images/products/@item.ProductImages.FirstOrDefault(m => !m.IsMain)?.Image"
+                                     alt="product thumbnail" width="150" height="150">
+                                </div>
+
+                            }
+
+                        </div>
+                    </div>
+
+                </div>
+                <div class="col-md-5">
+                    @foreach (var product in Model.Product)
+                    {
+                        <div class="product-item product-details">
+                            <input style="display:none" value="@product.Id" />
+                            <h1 class="product-name">@product.Name</h1>
+
+                            <span class="product-price">
+                                <del class="old-price">$@product.Price</del>
+                                <ins class="new-price">$@((product.Price - ((product.Price * product.Discount) / 100)).ToString("##.00"))</ins>
+                            </span>
+                            <p class="product-short-desc">
+                                @product.Description
+                            </p>
+
+                            <div class="product-form product-qty pt-1">
+                                <div class="product-form-group">
+                                    <button class="btn-product add-to-cart btn-cart ls-normal font-weight-semi-bold">
+                                        <i class="p-icon-cart-solid"></i>ADD TO CART
+                                    </button>
+                                </div>
+                            </div>
+
+                            <hr class="product-divider">
+                        </div>
+
+                    }
+                </div>
+            </div>
+            <div class="product-content">
+                <div class="content-description">
+                    <h2 class="title title-line title-underline mb-lg-8">
+                        <span>
+                            Description
+                        </span>
+                    </h2>
+                    <h3 class="content-title">
+                        @Model.Details.FirstOrDefault().HeaderTitle
+                    </h3>
+                    <p class="mb-4 mb-lg-8">
+                        @Model.Details.FirstOrDefault().HeaderDescription
+                    </p>
+                    @foreach (var detail in Model.Details)
+                    {
+                        <div class="row">
+                            <div class="col-12 col-md-6 col-lg-6 d-flex align-items-center">
+                                <div class="inner-video banner banner-fixed  overlay-dark">
+                                    <figure>
+                                        <a>
+                                            <img src="~/assets/images/products/product-single/banner/@detail.Image"
+                                             alt="product-banner" width="610" height="400" />
+                                        </a>
+                                    </figure>
+                                </div>
+                            </div>
+                            <div class="col-12 col-md-6 col-lg-6 with-content-index pt-3 pt-md-0 content-index-1 pl-2 pl-lg-7">
+                                <h4 class="content-subtitle">
+                                    @detail.Title
+                                </h4>
+                                <p class="mb-3">
+                                    @detail.Description
+                                </p>
+                            </div>
+                        </div>
+                    }
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="container">
+
+        <section class="mt-8 mb-9">
+            <h2 class="text-center mb-6">You Might Love These</h2>
+            <div class="owl-carousel owl-theme row cols-lg-4 cols-md-3 cols-2">
+                @foreach (var product in Model.ListProduct.Take(4))
+                {
+                    <div class="product-item product shadow-media text-center">
+                        <input style="display:none" value="@product.Id" />
+                        <figure class="product-media">
+                            <a asp-controller="ProductDetail" asp-action="Index" asp-route-id="@product.Id">
+                                @foreach (var image in product.ProductImages)
+                                {
+                                    <img src="~/assets/images/products/@image.Image" alt="product" width="295"
+                                 height="369" />
+                                }
+                            </a>
+                            <div class="product-action-vertical ">
+                                <a style="cursor:pointer;" data-toggle="tooltip" class="btn-product-icon add-to-cart" title="Add To Cart">
+                                    <i class="p-icon-cart-solid"></i>
+                                </a>
+                                <a style="cursor:pointer;" class="add-to-wish btn-product-icon btn-wishlist"
+                               title="Add to Wishlist">
+                                    <i class="p-icon-heart-solid"></i>
+                                </a>
+                            </div>
+                        </figure>
+                        <div class="product-details">
+                            <h5 class="product-name">
+                                <a asp-controller="ProductDetail" asp-action="Index" asp-route-id="@product.Id">
+                                    @product.Name
+                                </a>
+                            </h5>
+                            <span class="product-price">
+                                <del class="old-price">$@product.Price</del>
+                                <ins class="new-price">$@((product.Price - ((product.Price * product.Discount) / 100)).ToString("##.00"))</ins>
+                            </span>
+                        </div>
+                    </div>
+
+                }
+
+             
+            </div>
+        </section>
+    </div>
+</main>
+
+
+

@@ -1,0 +1,105 @@
+﻿@model HeaderVM
+
+<header class="header">
+    <div class="header-top">
+        <div class="container">
+            <div class="header-left">
+                @foreach (var contact in Model.ContactInfo.Skip(1).Take(2))
+                {
+                    <a asp-controller="Contact" asp-action="Index" class="call">
+                        <i class="@contact.Icon"></i>
+                        <span>@contact.Description</span>
+                    </a>
+                    <span class="divider"></span>
+                }
+               
+                
+            </div>
+            <div class="header-right">
+                <div class="social-links ">
+                    @foreach (var social in Model.Socials)
+                    {
+                        <a class="@social.Icon" title="@social.Name"></a>
+
+                    }
+            
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="header-middle has-center sticky-header fix-top sticky-content">
+        <div class="container">
+            <div class="header-left">
+                
+                <a asp-controller="Home" asp-action="Index" class="logo">
+                    <img src="~/assets/images/@Model.PandaLogo" alt="logo" width="171" height="41">
+                </a>
+            </div>
+            <div class="header-center">
+                <nav class="main-nav">
+                    <ul class="menu">
+                        <li class="active" style="height: 100%;">
+                            <a asp-controller="Home" asp-action="Index">Home</a>
+                        </li>
+                        <li>
+                            <a asp-controller="Shop" asp-action="Index">Shop</a>
+                        </li>
+                        <li>
+                            <a asp-controller="Blog" asp-action="Index">Blog</a>
+                        </li>
+                        <li>
+                            <a href="#">pages</a>
+                            <ul>
+                                <li><a asp-controller="About" asp-action="Index">About Us</a></li>
+                                <li><a asp-controller="Contact" asp-action="Index">Contact Us</a></li>
+                                <li><a asp-controller="Account" asp-action="Login">My Account</a></li>
+                            </ul>
+                        </li>
+                    </ul>
+                </nav>
+            </div>
+            <div class="header-right">
+                <div class="header-search hs-toggle">
+                    <a class="search-toggle" href="#" title="Search">
+                        <i class="p-icon-search-solid"></i>
+                    </a>
+                    <form action="#" class="form-simple">
+                        <input type="search" autocomplete="off" placeholder="Search in..." required>
+                        <button class="btn btn-search" type="submit">
+                            <i class="p-icon-search-solid"></i>
+                        </button>
+                    </form>
+                </div>
+                <div class="account">
+                    @if (User.Identity.IsAuthenticated)
+                    {
+                        <h4 style="margin-right: 15px; margin-top:2px;">@User.Identity.Name</h4>
+
+                        <a asp-controller="Account" asp-action="Logout" class="log-out">
+                            <i class="fa-solid fa-right-from-bracket"></i>
+                        </a>
+                    }
+                    else
+                    {
+                        <div class="dropdown login-dropdown off-canvas">
+                            <a asp-controller="Account" asp-action="Login" class="login-toggle" data-toggle="login-modal">
+                                <i class="p-icon-user-solid"></i>
+                            </a>
+
+                        </div>
+                    }
+                </div>
+               
+                <a asp-controller="Wishlist" asp-action="Index" class="wishlist" title="Wishlist">
+                    <i class="p-icon-heart-solid"></i>
+                </a>
+
+                <div class="dropdown cart-dropdown off-canvas mr-0 mr-lg-2">
+                    <a asp-controller="Basket" asp-action="Index" class="cart-toggle link">
+                        <i class="p-icon-cart-solid"></i>
+                    </a>
+                </div>
+            </div>
+        </div>
+    </div>
+</header>

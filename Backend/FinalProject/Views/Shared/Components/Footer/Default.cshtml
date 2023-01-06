@@ -1,0 +1,67 @@
+﻿@model FooterVM
+
+<footer class="footer">
+    <div class="container">
+        <div class="footer-top">
+            <ul class="menu menu-type2">
+                @foreach (var category in Model.FooterCategories)
+                {
+                   <li>
+                         <a asp-controller="Home" asp-action="Index">@category.Name</a>
+                   </li>
+                }
+               
+                
+            </ul>
+        </div>
+        <div class="footer-middle">
+            <div class="footer-left">
+                <ul class="widget-body">
+                    @foreach (var contact in Model.ContactInfos)
+                    {
+                       <li>
+                          <a  class="footer-icon-box">
+                            <i class="@contact.Icon"></i>
+                            <span>@contact.Description</span>
+                        </a>
+                       </li>
+                    }
+                   
+                </ul>
+            </div>
+            <div class="footer-center">
+                <a asp-controller="Home" asp-action="Index" class="logo-footer">
+                    <img src="~/assets/images/@Model.PandaLogo" alt="logo-footer" width="171" height="41">
+                </a>
+                <div class="social-links">
+                    @foreach (var social in Model.Socials)
+                    {
+                       <a asp-area="AdminArea" asp-controller="Dashboard" asp-action="Index" class="@social.Icon" title="@social.Name"></a>
+                    }
+                   
+                </div>
+            </div>
+            <div class="footer-right">
+                @foreach (var service in Model.Service.Take(2))
+                {
+                    <div class="icon-box icon-box-side">
+                        <span class="icon-box-icon">
+                            <i class="@service.Icon"></i>
+                        </span>
+                        <div class="icon-box-content">
+                            <h4 class="icon-box-title">@service.Title</h4>
+                            <p>@service.Description</p>
+                        </div>
+                    </div>
+
+                }
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <p class="copyright">@Model.SiteName</p>
+            <div>
+                <img src="~/assets/images/@Model.PaymentImage" alt="payment" width="159" height="29">
+            </div>
+        </div>
+    </div>
+</footer>

@@ -1,0 +1,110 @@
+﻿@model List<BasketDetailVM>
+@{
+    ViewData["Title"] = "Index";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<main class="main cart">
+    <div class="page-content pt-8 pb-10 mb-4">
+        <div class="step-by">
+            <h3 class="title title-step active"><a asp-controller="Cart" asp-action="Index">1.Shopping Cart</a></h3>
+        </div>
+        <div class="container mt-7 mb-2">
+            <div class="row">
+                <div class="col-lg-8 col-md-12 pr-lg-6">
+                    <table class="shop-table cart-table">
+                        <thead>
+                            <tr>
+                                <th><span>Product</span></th>
+                                <th></th>
+                                <th><span>Price</span></th>
+                                <th><span>quantity</span></th>
+                                <th>Subtotal</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            @foreach (BasketDetailVM product in Model)
+                            {
+                                <tr>
+                                    <td class="product-thumbnail">
+                                        <figure>
+                                            <a asp-controller="ProductDetail" asp-action="Index" asp-route-id="@product.Id">
+                                                <img src="~/assets/images/products/@product.Image" width="90" height="112"
+                                                 alt="product">
+                                            </a>
+                                        </figure>
+                                    </td>
+                                    <td class="product-name">
+                                        <div class="product-name-section">
+                                            <a asp-controller="ProductDetail" asp-action="Index" asp-route-id="@product.Id">@product.Name</a>
+
+                                        </div>
+                                    </td>
+                                    <td class="product-price">
+                                        <span class="product-price">
+                                            <del class="old-price">$@product.Price</del>
+                                            <ins class="new-price">$@((product.Price - ((product.Price * product.Discount) / 100)).ToString("##.00"))</ins>
+                                        </span>
+                                    </td>
+                                    <td class="product-quantity">
+                                        <div class="input-group">
+                                            <button class="quantity-minus p-icon-minus-solid"></button>
+                                            <input class="quantity form-control" type="number" min="1"
+                                               max="1000000">
+                                            <button class="quantity-plus p-icon-plus-solid"></button>
+                                        </div>
+                                    </td>
+                                    <td class="product-subtotal">
+                                        <span class="amount">$129.99</span>
+                                    </td>
+                                    <td class="product-remove">
+                                        <form asp-controller="Basket" asp-action="Delete" asp-route-id="@product.Id" method="post">
+                                            <button style="cursor: pointer" class="btn-remove" title="Remove this product">
+                                                <i class="p-icon-times"></i>
+                                            </button>
+                                        </form>
+                                        
+                                    </td>
+                                </tr>
+                            }
+                            
+                          
+                        </tbody>
+                    </table>
+                    <div class="cart-actions mb-6 pt-6">
+                        <a asp-controller="Shop" asp-action="Index" class="btn btn-dim btn-icon-left mr-4 mb-4">
+                            Continue Shopping <i class="p-icon-arrow-long-right"></i>
+                        </a>
+
+                    </div>
+
+                </div>
+                <aside class="col-lg-4 sticky-sidebar-wrapper">
+                    <div class="sticky-sidebar" data-sticky-options="{'bottom': 20}">
+                        <div class="summary mb-4">
+                            <h3 class="summary-title">Cart Totals</h3>
+                            <table class="shipping mb-2">
+                                <tr class="summary-subtotal">
+                                    <td>
+                                        <h4 class="summary-subtitle">Subtotal</h4>
+                                    </td>
+                                    <td>
+                                        <p class="summary-subtotal-price">$227.99</p>
+                                    </td>
+                                </tr>
+
+                            </table>
+
+
+                            <a asp-controller="Account" asp-action="Login" class="btn btn-dim btn-checkout btn-block">
+                                Proceed to
+                                checkout
+                            </a>
+                        </div>
+                    </div>
+                </aside>
+            </div>
+        </div>
+    </div>
+</main>
+

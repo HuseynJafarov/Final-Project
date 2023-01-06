@@ -1,0 +1,265 @@
+﻿@model HomeVM
+@{
+    ViewData["Title"] = "Home Page";
+}
+
+<main class="main">
+    <div class="page-content">
+        <section class="intro-section">
+            <div class="swiper mySwiper intro-slider owl-carousel owl-theme owl-nav-arrow row animation-slider cols-1 gutter-no mb-8">
+                <div class="swiper-wrapper">
+                @foreach (var slider in Model.SliderDetails)
+                {
+                        <div class="swiper-slide banner banner-fixed banner1 hero-slider-active">
+                        <figure>
+                            <img src="~/assets/images/demos/demo1/intro/@slider.Image" alt="banner" width="1903" height="600"
+                             style="background-color: #f8f6f6;">
+                        </figure>
+                        <div class="banner-content y-50 pb-1">
+                            <h4 class="banner-subtitle title-underline2 font-weight-normal text-dim">
+                                <span>
+                                    @Html.Raw(slider.Title)
+                                </span>
+                            </h4>
+                            <h3 class="banner-title text-dark lh-1 mb-7">
+                                @Html.Raw(slider.Description)
+                            </h3>
+                            <a asp-controller="Shop" asp-action="Index" class="btn btn-dark">
+                                Shop now
+                            </a>
+                        </div>
+                    </div>
+                }
+                </div>
+
+             
+                
+            </div>
+            <div class="container">
+                <div class="owl-carousel owl-theme owl-box-border row cols-md-3 cols-sm-2 cols-1  ">
+                    @foreach (var service in Model.Services)
+                    {
+                        <div class="icon-box icon-box-side">
+                        <span class="icon-box-icon">
+                            <i class="@service.Icon"></i>
+                        </span>
+                        <div class="icon-box-content">
+                            <h4 class="icon-box-title">@service.Title</h4>
+                            <p>@service.Description</p>
+                        </div>
+                        </div>
+
+                    }
+                    
+                </div>
+            </div>
+        </section>
+        <section class="container mt-10 pt-7 mb-7  ">
+            <h2 class="title-underline2 text-center mb-2"><span>Top Products</span></h2>
+            <div class="tab tab-nav-center product-tab product-tab-type2">
+                <ul class="nav nav-tabs">
+                    @foreach (var category in Model.Categories)
+                    {
+                           <li class="nav-item">
+                                <a class="nav-link" href="#@category.Id">
+
+                                    <div class="nav-title">@category.Name</div>
+                                </a>
+                           </li>
+                    }
+                 
+                </ul>
+                <div class="tab-content">
+                    <div class="tab-pane active" id="canned">
+                        <div class="owl-carousel owl-theme row cols-lg-4 cols-md-3 cols-2" >
+
+                            @foreach (var product in Model.Products)
+                            {
+                                <div class="product-item product shadow-media text-center">
+                                    <input style="display:none" value="@product.Id" />
+                                    <figure class="product-media">
+                                        <a asp-controller="ProductDetail" asp-action="Index" asp-route-id="@product.Id">
+                                            @foreach (var image in product.ProductImages)
+                                            {
+                                                <img src="~/assets/images/products/@image.Image" alt="product" width="295"
+                                                 height="369" />
+                                            }
+                                        </a>
+                                        <div class="product-action-vertical ">
+                                            <a style="cursor:pointer;" data-toggle="tooltip" class="btn-product-icon add-to-cart" title="Add To Cart">
+                                                <i class="p-icon-cart-solid"></i>
+                                            </a>
+                                            <a style="cursor:pointer;" class="add-to-wish btn-product-icon btn-wishlist"
+                                           title="Add to Wishlist">
+                                                <i class="p-icon-heart-solid"></i>
+                                            </a>
+                                        </div>
+                                    </figure>
+                                    <div class="product-details">
+                                        <h5 class="product-name">
+                                            <a asp-controller="ProductDetail" asp-action="Index" asp-route-id="@product.Id">
+                                                @product.Name
+                                            </a>
+                                        </h5>
+                                        <span class="product-price">
+                                            <del class="old-price">$@product.Price</del>
+                                            <ins class="new-price">$@((product.Price - ((product.Price * product.Discount) / 100)).ToString("##.00"))</ins>
+                                        </span>
+                                    </div>
+                                </div>
+
+                            }
+
+                           
+
+                        </div>
+                    </div>
+                   
+                </div>
+            </div>
+        </section>
+        <section class="benefit-section  " style="background: #fafaf8;">
+            <div class="container">
+                @foreach (var productInfoDetail in Model.ProductInfoDetail)
+                {
+                    <h4 class="subtitle title-underline2 text-uppercase text-center">
+                        <span>@productInfoDetail.Title</span>
+                    </h4>
+                    <h2 class="title justify-content-center text-center pb-6 mb-10">@productInfoDetail.Description</h2>
+                    <figure class="img-back floating">
+                        <img class="layer" src="~/assets/images/demos/demo1/banner/@productInfoDetail.Image" width="674" height="514"
+                         alt="banner" />
+                    </figure>
+                }
+                
+                <div class="row  ">
+                    @foreach (var productInfo in Model.ProductInfos)
+                    {
+                        <div class="col-md-6">
+                        <div class="icon-box ml-md-4">
+                            <span class="icon-box-icon">
+                                <i class="@productInfo.Icon" style="font-size: 2.05em;"></i>
+                            </span>
+                            <div class="icon-box-content">
+                                <h4 class="icon-box-title">@productInfo.Title</h4>
+                                <p>
+                                    @productInfo.Description
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+                    }
+                  
+
+                </div>
+            </div>
+        </section>
+        <section class="new-section container mt-10 pt-8  ">
+            <h2 class="title title-underline2 justify-content-center mb-8"><span>New Arrivals</span></h2>
+            <div class="owl-carousel owl-theme owl-nav-arrow owl-nav-outer owl-nav-image-center row cols-lg-4 cols-md-3 cols-2">
+                @foreach (var product in Model.Products.OrderByDescending(m=> m.Id))
+                {
+                    <div class="product-item product shadow-media text-center">
+                        <input style="display:none" value="@product.Id" />
+                        <figure class="product-media">
+                            <a asp-controller="ProductDetail" asp-action="Index" asp-route-id="@product.Id">
+                                @foreach (var image in product.ProductImages)
+                                {
+                                    <img src="~/assets/images/products/@image.Image" alt="product" width="295"
+                                 height="369" />
+                                }
+                            </a>
+                            <div class="product-action-vertical ">
+                                <a style="cursor:pointer;" data-toggle="tooltip" class="btn-product-icon add-to-cart" title="Add To Cart">
+                                    <i class="p-icon-cart-solid"></i>
+                                </a>
+                                <a style="cursor:pointer;" class="add-to-wish btn-product-icon btn-wishlist"
+                               title="Add to Wishlist">
+                                    <i class="p-icon-heart-solid"></i>
+                                </a>
+                            </div>
+                        </figure>
+                        <div class="product-details">
+                            <h5 class="product-name">
+                                <a asp-controller="ProductDetail" asp-action="Index" asp-route-id="@product.Id">
+                                    @product.Name
+                                </a>
+                            </h5>
+                            <span class="product-price">
+                                <del class="old-price">$@product.Price</del>
+                                <ins class="new-price">$@((product.Price - ((product.Price * product.Discount) / 100)).ToString("##.00"))</ins>
+                            </span>
+                        </div>
+                    </div>
+
+                }
+               
+
+               
+            </div>
+            <div class="row mt-10  ">
+                @foreach (var banner in Model.Banners)
+                {
+                    <div class="col-md-6">
+                        <div class="banner banner-fixed banner3 mb-md-0 mb-4">
+                            <figure>
+                                <img src="~/assets/images/demos/demo1/banner/@banner.Image" alt="banner" width="610"
+                                 height="250" style="background-color: #86786b;">
+                            </figure>
+                            <div class="banner-content y-50">
+                                <h4 class="banner-subtitle font-weight-normal text-white ls-1 mt-1">
+                                    @banner.Title
+                                </h4>
+                                <h3 class="banner-title text-white lh-1 mb-3">@banner.Description</h3>
+                                <a asp-controller="Shop" asp-action="Index" class="btn btn-underline btn-link text-white">
+                                    Shop Now<i class="p-icon-arrow-long-right pl-1"></i>
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                }
+                
+               
+            </div>
+        </section>
+       
+        <section class="recent-section container mt-10 pt-7 mb-10 pb-6">
+            <h4 class="subtitle title-underline2 text-uppercase text-center">
+                <span>Our Blog</span>
+            </h4>
+            <h2 class="title justify-content-center text-center">Recent Stories And Articles</h2>
+            <div class="owl-carousel owl-theme row cols-lg-3 cols-sm-2 cols-1 mb-10 pb-8">
+                @foreach (var blog in Model.Blogs)
+                {
+                    <div class="post post-border post-center overlay-zoom overlay-dark">
+                        <figure class="post-media">
+                            <a asp-controller="Blog" asp-action="Index">
+                                <img src="~/assets/images/blog/@blog.Image" width="400" height="250" alt="post">
+                            </a>
+                            <div class="post-calendar">
+                                18 Feb 2021
+                            </div>
+                        </figure>
+                        <div class="post-details">
+                           
+                            <h3 class="post-title">
+                                <a asp-controller="Blog" asp-action="Index">
+                                    @blog.Title
+                                </a>
+                            </h3>
+
+                            <p class="post-content">
+                                @blog.Description<a asp-controller="Blog" asp-action="Index" class="ml-2 text-primary">(read more)</a>
+                            </p>
+                        </div>
+                    </div>
+
+                }
+               
+            </div>
+
+        </section>
+    </div>
+</main>
+
+
