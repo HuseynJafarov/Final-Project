@@ -12,8 +12,8 @@
                     </a>
                     <span class="divider"></span>
                 }
-               
-                
+
+
             </div>
             <div class="header-right">
                 <div class="social-links ">
@@ -22,7 +22,7 @@
                         <a class="@social.Icon" title="@social.Name"></a>
 
                     }
-            
+
                 </div>
             </div>
         </div>
@@ -30,7 +30,7 @@
     <div class="header-middle has-center sticky-header fix-top sticky-content">
         <div class="container">
             <div class="header-left">
-                
+
                 <a asp-controller="Home" asp-action="Index" class="logo">
                     <img src="~/assets/images/@Model.PandaLogo" alt="logo" width="171" height="41">
                 </a>
@@ -59,47 +59,45 @@
                 </nav>
             </div>
             <div class="header-right">
-                <div class="header-search hs-toggle">
-                    <a class="search-toggle" href="#" title="Search">
-                        <i class="p-icon-search-solid"></i>
-                    </a>
-                    <form action="#" class="form-simple">
-                        <input type="search" autocomplete="off" placeholder="Search in..." required>
-                        <button class="btn btn-search" type="submit">
-                            <i class="p-icon-search-solid"></i>
-                        </button>
-                    </form>
+                <div class="input">
+                    <input type="text" class="search-name" id="searchinp" placeholder="Search...">
                 </div>
-                <div class="account">
-                    @if (User.Identity.IsAuthenticated)
-                    {
-                        <h4 style="margin-right: 15px; margin-top:2px;">@User.Identity.Name</h4>
+            </div>
+            <div class="account">
+                @if (User.Identity.IsAuthenticated)
+                {
+                    <h4 style="margin-right: 15px; margin-top:2px;">@User.Identity.Name</h4>
 
-                        <a asp-controller="Account" asp-action="Logout" class="log-out">
-                            <i class="fa-solid fa-right-from-bracket"></i>
+                    <a asp-controller="Account" asp-action="Logout" class="log-out">
+                        <i class="fa-solid fa-right-from-bracket"></i>
+                    </a>
+                }
+                else
+                {
+                    <div class="dropdown login-dropdown off-canvas">
+                        <a asp-controller="Account" asp-action="Login" class="login-toggle" data-toggle="login-modal">
+                            <i class="p-icon-user-solid"></i>
                         </a>
-                    }
-                    else
-                    {
-                        <div class="dropdown login-dropdown off-canvas">
-                            <a asp-controller="Account" asp-action="Login" class="login-toggle" data-toggle="login-modal">
-                                <i class="p-icon-user-solid"></i>
-                            </a>
 
-                        </div>
-                    }
-                </div>
-               
-                <a asp-controller="Wishlist" asp-action="Index" class="wishlist" title="Wishlist">
-                    <i class="p-icon-heart-solid"></i>
+                    </div>
+                }
+            </div>
+
+            <a asp-controller="Wishlist" asp-action="Index" class="wishlist" title="Wishlist">
+                <i class="p-icon-heart-solid"></i>
+            </a>
+
+            <div class="dropdown cart-dropdown off-canvas mr-0 mr-lg-2">
+                <a asp-controller="Basket" asp-action="Index" class="cart-toggle link">
+                    <i class="p-icon-cart-solid"></i>
                 </a>
-
-                <div class="dropdown cart-dropdown off-canvas mr-0 mr-lg-2">
-                    <a asp-controller="Basket" asp-action="Index" class="cart-toggle link">
-                        <i class="p-icon-cart-solid"></i>
-                    </a>
-                </div>
             </div>
         </div>
     </div>
 </header>
+<div class="container">
+    <div class="search-list">
+        <ul class="d-block search-list-p" id="searchList"></ul>
+    </div>
+</div >
+

@@ -25,6 +25,8 @@ namespace FinalProject.Areas.AdminArea.Controllers
         {
             List<AboutLi> li = await _context.AboutLis
               .Where(m => !m.IsDeleted).ToListAsync();
+            ViewBag.count = await _context.AboutLis.Where(m => !m.IsDeleted).CountAsync();
+
 
             return View(li);
         }

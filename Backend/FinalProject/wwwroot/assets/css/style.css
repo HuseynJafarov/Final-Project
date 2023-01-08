@@ -6,10 +6,48 @@
   font-size: 3rem;
 }
 
+
+
+.category-parent ul li a {
+    margin-right: 30px;
+    text-transform: uppercase;
+    -webkit-transition: color .3s;
+    transition: color .3s;
+    font-size: 12px;
+    letter-spacing: .1em;
+    color: black;
+}
+
+    .category-parent ul li a:hover {
+        color: #f34f3f;
+        text-decoration: none;
+    }
+
 .swiper {
     width: 100%;
     height: 100%;
-    
+}
+
+.header-right .input {
+    margin-right: 5px !important;
+}
+
+.search-name {
+    border-radius: 10px !important;
+    height: 25px !important;
+}
+.search-list {
+    display: flex !important;
+    text-align: center !important;
+    justify-content: end !important;
+}
+.search-list-p  {
+    width: 100%;
+}
+.search-nameli {
+    list-style: none;
+    display: flex;
+    padding-top:5px!important;
 }
 
 .account {
@@ -521,10 +559,7 @@ i {
 .scrollable-light::-webkit-scrollbar-thumb {
   background: rgba(255, 255, 255, 0.2);
 }
-.  {
-  transform: translate3d(0, 0, 0) scale(1);
-  will-change: transform, filter, opacity;
-}
+
    .icon-box {
         padding-left:180px;
     }
@@ -3205,10 +3240,7 @@ blockquote {
 .brightIn {
   animation-name: brightIn;
 }
-.  {
-  visibility: hidden;
-  opacity: 0;
-}
+
 .appear-animation-visible {
   visibility: visible;
   opacity: 1;
@@ -4333,10 +4365,7 @@ select {
   margin-left: 250px;
   margin-right: -250px;
 }
-.right-sidebar-active .page-wrapper {
-  margin-left: 0-false;
-  margin-right: 0false;
-}
+
 .sidebar-content,
 .sidebar-overlay,
 .sidebar-toggle {
@@ -9651,7 +9680,7 @@ ul.pagination {
  
 }
 .menu li a {
-  font-weight: 00;
+
   padding: 1rem 0 1rem 1rem;
   line-height: 1;
 }

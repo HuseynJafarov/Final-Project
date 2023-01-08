@@ -1,0 +1,35 @@
+﻿@model HomeVM
+
+@foreach (var product in Model.Products)
+{
+    <div class=" product-item product shadow-media text-center" data-id="@product.CategoryId">
+        <input style="display:none" value="@product.Id"/>
+        <figure class="product-media">
+            <a asp-controller="ProductDetail" asp-action="Index" asp-route-id="@product.Id">
+                @foreach (var image in product.ProductImages)
+                {
+                    <img src="~/assets/images/products/@image.Image" alt="product" width="295 height="369" />
+                }
+            </a>
+            <div class="product-action-vertical ">
+                <a style="cursor:pointer;" data-toggle="tooltip" class="btn-product-icon add-to-cart" title="Add To Cart">
+                    <i class="p-icon-cart-solid"></i>
+                </a>
+                <a style="cursor:pointer;" class="add-to-wish btn-product-icon btn-wishlist" title="Add to Wishlist">
+                    <i class="p-icon-heart-solid"></i>
+                </a>
+            </div>
+        </figure>
+        <div class="product-details">
+            <h5 class="product-name">
+                <a asp-controller="ProductDetail" asp-action="Index" asp-route-id="@product.Id">
+                    @product.Name
+                </a>
+            </h5>
+            <span class="product-price">
+                <del class="old-price">$@product.Price</del>
+                <ins class="new-price">$@((product.Price - ((product.Price * product.Discount) / 100)).ToString("##.00"))</ins>
+            </span>
+        </div>
+    </div>
+}

@@ -4,6 +4,7 @@
 }
 
 <main class="main">
+
     <div class="page-content">
         <section class="intro-section">
             <div class="swiper mySwiper intro-slider owl-carousel owl-theme owl-nav-arrow row animation-slider cols-1 gutter-no mb-8">
@@ -25,7 +26,7 @@
                                 @Html.Raw(slider.Description)
                             </h3>
                             <a asp-controller="Shop" asp-action="Index" class="btn btn-dark">
-                                Shop now
+                                Alishverise Basla
                             </a>
                         </div>
                     </div>
@@ -54,65 +55,45 @@
                 </div>
             </div>
         </section>
+            </div>
+        <div>
+     
         <section class="container mt-10 pt-7 mb-7  ">
             <h2 class="title-underline2 text-center mb-2"><span>Top Products</span></h2>
             <div class="tab tab-nav-center product-tab product-tab-type2">
-                <ul class="nav nav-tabs">
-                    @foreach (var category in Model.Categories)
-                    {
-                           <li class="nav-item">
-                                <a class="nav-link" href="#@category.Id">
+                    <div class="category-parent">
+                    <ul class="category-mobile d-md-none list-unstyled">
+                        <li>
+                            <a href="" class="categories mr-2">Categories</a>
+                            <i class="fas fa-caret-down"></i>
+                            <ul class="category list-unstyled" style="display: none;">
+                                <li><a href="" data-id="all">All</a></li>
+                                @foreach (var item in Model.Categories)
+                                {
+                                    <li><a href="" data-id="@item.Id">@Html.Raw(item.Name)</a></li>
+                                }
 
-                                    <div class="nav-title">@category.Name</div>
-                                </a>
-                           </li>
-                    }
-                 
-                </ul>
+                            </ul>
+                        </li>
+                    </ul>
+                    <ul class="category d-none d-md-flex list-unstyled">
+                        <li><a href="" data-id="all">All</a></li>
+                        @foreach (var item in Model.Categories)
+                        {
+                            <li><a href="" data-id="@item.Id">@Html.Raw(item.Name)</a></li>
+                        }
+                    </ul>
+                    </div>
+
                 <div class="tab-content">
-                    <div class="tab-pane active" id="canned">
-                        <div class="owl-carousel owl-theme row cols-lg-4 cols-md-3 cols-2" >
-
-                            @foreach (var product in Model.Products)
-                            {
-                                <div class="product-item product shadow-media text-center">
-                                    <input style="display:none" value="@product.Id" />
-                                    <figure class="product-media">
-                                        <a asp-controller="ProductDetail" asp-action="Index" asp-route-id="@product.Id">
-                                            @foreach (var image in product.ProductImages)
-                                            {
-                                                <img src="~/assets/images/products/@image.Image" alt="product" width="295"
-                                                 height="369" />
-                                            }
-                                        </a>
-                                        <div class="product-action-vertical ">
-                                            <a style="cursor:pointer;" data-toggle="tooltip" class="btn-product-icon add-to-cart" title="Add To Cart">
-                                                <i class="p-icon-cart-solid"></i>
-                                            </a>
-                                            <a style="cursor:pointer;" class="add-to-wish btn-product-icon btn-wishlist"
-                                           title="Add to Wishlist">
-                                                <i class="p-icon-heart-solid"></i>
-                                            </a>
-                                        </div>
-                                    </figure>
-                                    <div class="product-details">
-                                        <h5 class="product-name">
-                                            <a asp-controller="ProductDetail" asp-action="Index" asp-route-id="@product.Id">
-                                                @product.Name
-                                            </a>
-                                        </h5>
-                                        <span class="product-price">
-                                            <del class="old-price">$@product.Price</del>
-                                            <ins class="new-price">$@((product.Price - ((product.Price * product.Discount) / 100)).ToString("##.00"))</ins>
-                                        </span>
-                                    </div>
-                                </div>
-
-                            }
-
-                           
-
+                    <div class=" intro-slider tab-pane active">
+                        <input type="hidden" class="product-count" value="@ViewBag.count" />
+                        <div class="parent-products owl-theme row cols-lg-4 cols-md-3 cols-2">
+                            <partial name="_ProductPartial" />
                         </div>
+                            <div class="show-more d-flex justify-content-center my-2 mb-2 w-100">
+                                <button class="btn btn-dark">Show more ...</button>
+                            </div>
                     </div>
                    
                 </div>

@@ -27,6 +27,8 @@ namespace FinalProject.Controllers
 
         public async Task<IActionResult> Index()
         {
+            ViewBag.count = await _context.Products.Where(m => !m.IsDeleted).CountAsync();
+
             Dictionary<string, string> settingDatas = await _layoutService.GetDatasFromSetting();
 
             int take = int.Parse(settingDatas["HomeTakeProduct"]);
@@ -97,6 +99,24 @@ namespace FinalProject.Controllers
             return RedirectToAction("Index");
         }
 
+       
+        public IActionResult Search(string search)
+        {
+            List<Product> searchName = _context.Products.Where(s => s.Name.Trim().Contains(search.Trim())).Include(m => m.ProductImages).ToList();
+            return PartialView("_Search", searchName);
+        }
+
+        public async Task<IActionResult> LoadMore(int skip)
+        {
+            IEnumerable<Product> products = await _context.Products.Where(m => !m.IsDeleted).Include(m => m.Category).Include(m => m.ProductImages).Skip(skip).Take(4).ToListAsync();
+
+            HomeVM model = new HomeVM
+            {
+                Products= products,
+            };
+
+            return PartialView("_ProductPartial", model);
+        }
 
         private void UpdateBasket(List<BasketVM> basket, int id)
         {

@@ -6,6 +6,7 @@ namespace FinalProject.ViewModel
 {
     public class HeaderVM
     {
+        public IEnumerable<Product>  Products { get; set; }
         public IEnumerable<ContactInfo> ContactInfo { get; set; }
         public string PandaLogo { get; set; }
         public IEnumerable<Social> Socials { get; set; }

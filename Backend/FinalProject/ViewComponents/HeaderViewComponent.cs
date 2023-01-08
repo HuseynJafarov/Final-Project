@@ -3,6 +3,7 @@ using FinalProject.Models;
 using FinalProject.Services;
 using FinalProject.ViewModel;
 using Microsoft.AspNetCore.Mvc;
+using Microsoft.EntityFrameworkCore;
 using System.Collections.Generic;
 using System.Threading.Tasks;
 
@@ -26,10 +27,11 @@ namespace FinalProject.ViewComponents
             IEnumerable<ContactInfo> contactInfos = await _layoutService.GetDatasFromContactInfo();
 
             IEnumerable<Social> socials = await _layoutService.GEtDatasFromSocial();
-
+            IEnumerable<Product> products = await _context.Products.ToListAsync();
 
             HeaderVM model = new HeaderVM
             {
+                Products = products,
                 PandaLogo = settingDatas["PandaLogo"],
                 ContactInfo= contactInfos,
                 Socials= socials,

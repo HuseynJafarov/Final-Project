@@ -42,19 +42,38 @@
                             </div>
 
                             <div class="widget widget-collapsible">
-                                <h3 class="widget-title title-underline">
-                                    <span class="title-text">Category</span>
-                                </h3>
-                                <ul class="widget-body filter-items">
-                                    @foreach (var category in Model.Datas)
-                                    {
-                                        @foreach (var item in category.Categories)
+                            
+                                <div class="category-parent">
+                                    <ul class="category-mobile list-unstyled">
+                                        <li>
+                                            <a href="" style="font-size:16px;" class="categories mr-2">Categories</a>
+                                            <i class="fas fa-caret-down"></i>
+                                            <ul class="category list-unstyled" style="display: none;font-size:16px;">
+                                                <li><a style="font-size:16px;" href="" data-id="all">All</a></li>
+                                                @foreach (var category in Model.Datas)
+                                                {
+                                                    @foreach (var item in category.Categories)
+                                                    {
+                                                        <li><a href="" style="font-size:16px;" data-id="@item.Id">@Html.Raw(item.Name)</a></li>
+                                                    }
+                                                }
+                                                
 
+                                            </ul>
+                                        </li>
+                                    </ul>
+                                    <ul class="category d-none d-md-flex list-unstyled">
+                                        <li><a href="" data-id="all">All</a></li>
+                                        @foreach (var category in Model.Datas)
                                         {
-                                            <li><a href="#">@item.Name</a></li>
+                                            @foreach (var item in category.Categories)
+                                            {
+                                                <li><a href="" data-id="@item.Id">@Html.Raw(item.Name)</a></li>
+                                            }
                                         }
-                                    }
-                                </ul>
+                                    </ul>
+                                </div>
+                          
                             </div>
                         </div>
                     </div>
@@ -66,7 +85,7 @@
                             @foreach (var product1 in product.Products)
                             {
                                 <div class="product-wrap">
-                                    <div class="product-item product shadow-media text-center">
+                                    <div class="product-item product shadow-media text-center" data-id="@product1.CategoryId">
                                         <input style="display:none" value="@product1.Id" />
                                         <figure class="product-media">
                                             <a asp-controller="ProductDetail" asp-action="Index"asp-route-id="@product1.Id">

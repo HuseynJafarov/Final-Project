@@ -11,7 +11,6 @@ namespace FinalProject.Models
         public string SingImage { get; set; }
         [NotMapped]
         public IFormFile Photo { get; set; }
-        [NotMapped]
-        public IFormFile SingPhoto { get; set; }
+       
     }
 }

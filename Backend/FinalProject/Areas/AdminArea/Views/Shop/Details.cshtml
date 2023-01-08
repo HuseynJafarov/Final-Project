@@ -1,0 +1,61 @@
+﻿@model ProductUpdateVM
+@{
+    ViewData["Title"] = "Details";
+    Layout = "~/Areas/AdminArea/Views/Shared/_AdminLayout.cshtml";
+}
+
+
+<div class="container my-5">
+    <div class="card">
+        <div class="card-header">
+            Shop detail
+        </div>
+        <table class="table table-bordered">
+            <thead>
+                <tr>
+                    <th>
+                        Image
+                    </th>
+                    <th>
+                        Title
+                    </th>
+                    <th>
+                        Description
+                    </th>
+                    <th>
+                        Price
+                    </th>
+                    <th>
+                        Discount
+                    </th>
+                    <th>
+                        Category
+                    </th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td>
+                        <img src="~/assets/images/products/@Model.Images.FirstOrDefault(m=> m.IsMain && !m.IsDeleted)?.Image" alt="Product" />
+                    </td>
+                    <td>
+                        @Html.Raw(Model.Name)
+                    </td>
+                    <td>
+                        @Html.Raw(Model.Description)
+                    </td>
+                    <td>
+                        @Html.Raw(Model.Price) $
+                    </td>
+                    <td>
+                        @Html.Raw(Model.Discount) $
+                    </td>
+                    <td>
+                        @Html.Raw(Model.CategoryName)
+                    </td>
+
+                </tr>
+            </tbody>
+        </table>
+    </div>
+</div>

@@ -9,6 +9,17 @@
   </ItemGroup>
 
   <ItemGroup>
+    <None Include="Areas\AdminArea\Views\Shop\Create.cshtml" />
+    <None Include="Areas\AdminArea\Views\Shop\Details.cshtml" />
+    <None Include="Areas\AdminArea\Views\Shop\Edit.cshtml" />
+    <None Include="Areas\AdminArea\Views\Shop\Index.cshtml" />
+    <None Include="Areas\AdminArea\Views\SliderDetail\Create.cshtml" />
+    <None Include="Areas\AdminArea\Views\SliderDetail\Details.cshtml" />
+    <None Include="Areas\AdminArea\Views\SliderDetail\Edit.cshtml" />
+    <None Include="Areas\AdminArea\Views\SliderDetail\Index.cshtml" />
+  </ItemGroup>
+
+  <ItemGroup>
     <PackageReference Include="MailKit" Version="3.4.3" />
     <PackageReference Include="Microsoft.AspNetCore.Identity.EntityFrameworkCore" Version="3.1.32" />
     <PackageReference Include="Microsoft.EntityFrameworkCore" Version="3.1.32" />

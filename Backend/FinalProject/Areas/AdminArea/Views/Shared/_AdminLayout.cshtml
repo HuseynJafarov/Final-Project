@@ -183,7 +183,7 @@
                         </a>
                         <div class="collapse" id="ui-basic">
                             <ul class="nav flex-column sub-menu">
-                                <li class="nav-item"> <a class="nav-link" asp-area="AdminArea" asp-controller="Blog" asp-action="Index">Blog</a></li>
+                                <li class="nav-item"> <a class="nav-link" asp-area="AdminArea" asp-controller="SliderDetail" asp-action="Index">Slider</a></li>
                                 <li class="nav-item"> <a class="nav-link" asp-area="AdminArea" asp-controller="BlogDetail" asp-action="Index">Blog Details</a></li>
                                 <li class="nav-item"> <a class="nav-link" asp-area="AdminArea" asp-controller="BlogDetailDesc" asp-action="Index">Blog DetailsDesc</a></li>
                                 <li class="nav-item"> <a class="nav-link" asp-area="AdminArea" asp-controller="BlogVideo" asp-action="Index">Blog Video</a></li>
@@ -221,9 +221,6 @@
                                 <li class="nav-item"> <a class="nav-link" asp-area="AdminArea" asp-controller="Aboutbottom" asp-action="Index">About Bottom</a></li>
                                 <li class="nav-item"> <a class="nav-link" asp-area="AdminArea" asp-controller="AboutTop" asp-action="Index">About Top</a></li>
                                 <li class="nav-item"> <a class="nav-link" asp-area="AdminArea" asp-controller="AboutLi" asp-action="Index">About Text</a></li>
-                                <li class="nav-item"> <a class="nav-link" asp-area="AdminArea" asp-controller="BlogVideo" asp-action="Index">Blog Video</a></li>
-                                <li class="nav-item"> <a class="nav-link" asp-area="AdminArea" asp-controller="Tag" asp-action="Index">Tag</a></li>
-                                <li class="nav-item"> <a class="nav-link" asp-area="AdminArea" asp-controller="Customer" asp-action="Index">Customer</a></li>
                             </ul>
                         </div>
                     </li>
@@ -250,7 +247,7 @@
                         </div>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="documentation/documentation.html">
+                        <a class="nav-link" asp-area="AdminArea" asp-controller="TellUs" asp-action="Index">
                             <i class="mdi mdi-file-document-box-outline menu-icon"></i>
                             <span class="menu-title">Documentation</span>
                         </a>
