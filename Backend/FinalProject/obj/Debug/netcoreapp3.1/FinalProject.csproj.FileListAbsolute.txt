@@ -66,7 +66,6 @@ C:\Users\HP\Desktop\CodeAcademy\FinalProject\Backend\FinalProject\obj\Debug\netc
 C:\Users\HP\Desktop\CodeAcademy\FinalProject\Backend\FinalProject\obj\Debug\netcoreapp3.1\Razor\Views\Wishlist\Index.cshtml.g.cs
 C:\Users\HP\Desktop\CodeAcademy\FinalProject\Backend\FinalProject\obj\Debug\netcoreapp3.1\Razor\Views\_ViewImports.cshtml.g.cs
 C:\Users\HP\Desktop\CodeAcademy\FinalProject\Backend\FinalProject\obj\Debug\netcoreapp3.1\Razor\Views\_ViewStart.cshtml.g.cs
-C:\Users\HP\Desktop\CodeAcademy\FinalProject\Backend\FinalProject\obj\Debug\netcoreapp3.1\Razor\wwwroot\assets\images\Index.cshtml.g.cs
 C:\Users\HP\Desktop\CodeAcademy\FinalProject\Backend\FinalProject\obj\Debug\netcoreapp3.1\FinalProject.RazorTargetAssemblyInfo.cache
 C:\Users\HP\Desktop\CodeAcademy\FinalProject\Backend\FinalProject\obj\Debug\netcoreapp3.1\FinalProject.RazorTargetAssemblyInfo.cs
 C:\Users\HP\Desktop\CodeAcademy\FinalProject\Backend\FinalProject\obj\Debug\netcoreapp3.1\FinalProject.dll
@@ -212,3 +211,15 @@ C:\Users\HP\Desktop\CodeAcademy\FinalProject\Backend\FinalProject\bin\Debug\netc
 C:\Users\HP\Desktop\CodeAcademy\FinalProject\Backend\FinalProject\obj\Debug\netcoreapp3.1\FinalProject.Views.pdb
 C:\Users\HP\Desktop\CodeAcademy\FinalProject\Backend\FinalProject\obj\Debug\netcoreapp3.1\FinalProject.csproj.CopyComplete
 C:\Users\HP\Desktop\CodeAcademy\FinalProject\Backend\FinalProject\obj\Debug\netcoreapp3.1\FinalProject.genruntimeconfig.cache
+C:\Users\HP\Desktop\CodeAcademy\FinalProject\Backend\FinalProject\obj\Debug\netcoreapp3.1\Razor\Areas\AdminArea\Views\Blog\Create.cshtml.g.cs
+C:\Users\HP\Desktop\CodeAcademy\FinalProject\Backend\FinalProject\obj\Debug\netcoreapp3.1\Razor\Areas\AdminArea\Views\Blog\Details.cshtml.g.cs
+C:\Users\HP\Desktop\CodeAcademy\FinalProject\Backend\FinalProject\obj\Debug\netcoreapp3.1\Razor\Areas\AdminArea\Views\Blog\Edit.cshtml.g.cs
+C:\Users\HP\Desktop\CodeAcademy\FinalProject\Backend\FinalProject\obj\Debug\netcoreapp3.1\Razor\Areas\AdminArea\Views\Blog\Index.cshtml.g.cs
+C:\Users\HP\Desktop\CodeAcademy\FinalProject\Backend\FinalProject\obj\Debug\netcoreapp3.1\Razor\Areas\AdminArea\Views\Category\Create.cshtml.g.cs
+C:\Users\HP\Desktop\CodeAcademy\FinalProject\Backend\FinalProject\obj\Debug\netcoreapp3.1\Razor\Areas\AdminArea\Views\Category\Detail.cshtml.g.cs
+C:\Users\HP\Desktop\CodeAcademy\FinalProject\Backend\FinalProject\obj\Debug\netcoreapp3.1\Razor\Areas\AdminArea\Views\Category\Edit.cshtml.g.cs
+C:\Users\HP\Desktop\CodeAcademy\FinalProject\Backend\FinalProject\obj\Debug\netcoreapp3.1\Razor\Areas\AdminArea\Views\Category\Index.cshtml.g.cs
+C:\Users\HP\Desktop\CodeAcademy\FinalProject\Backend\FinalProject\obj\Debug\netcoreapp3.1\Razor\Areas\AdminArea\Views\ContactInfo\Create.cshtml.g.cs
+C:\Users\HP\Desktop\CodeAcademy\FinalProject\Backend\FinalProject\obj\Debug\netcoreapp3.1\Razor\Areas\AdminArea\Views\ContactInfo\Details.cshtml.g.cs
+C:\Users\HP\Desktop\CodeAcademy\FinalProject\Backend\FinalProject\obj\Debug\netcoreapp3.1\Razor\Areas\AdminArea\Views\ContactInfo\Edit.cshtml.g.cs
+C:\Users\HP\Desktop\CodeAcademy\FinalProject\Backend\FinalProject\obj\Debug\netcoreapp3.1\Razor\Areas\AdminArea\Views\ContactInfo\Index.cshtml.g.cs

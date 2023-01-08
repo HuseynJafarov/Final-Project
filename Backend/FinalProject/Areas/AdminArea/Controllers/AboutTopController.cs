@@ -209,7 +209,7 @@ namespace FinalProject.Areas.AdminArea.Controllers
         {
             List<AboutTop> dbModel = await _context.AboutTops.Where(m => m.IsActive).ToListAsync();
 
-            if (dbModel.Count < 1)
+            if (dbModel.Count < 10)
             {
                 AboutTop model = await _context.AboutTops.FirstOrDefaultAsync(m => m.Id == id);
 

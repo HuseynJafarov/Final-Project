@@ -9,6 +9,10 @@
   </ItemGroup>
 
   <ItemGroup>
+    <None Include="Areas\AdminArea\Views\Category\Create.cshtml" />
+    <None Include="Areas\AdminArea\Views\Category\Detail.cshtml" />
+    <None Include="Areas\AdminArea\Views\Category\Edit.cshtml" />
+    <None Include="Areas\AdminArea\Views\Category\Index.cshtml" />
     <None Include="Areas\AdminArea\Views\Shop\Create.cshtml" />
     <None Include="Areas\AdminArea\Views\Shop\Details.cshtml" />
     <None Include="Areas\AdminArea\Views\Shop\Edit.cshtml" />

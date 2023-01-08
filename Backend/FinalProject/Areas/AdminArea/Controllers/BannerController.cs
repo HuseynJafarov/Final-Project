@@ -202,6 +202,47 @@ namespace FinalProject.Areas.AdminArea.Controllers
             return RedirectToAction(nameof(Index));
         }
 
+        [HttpPost]
+        [ValidateAntiForgeryToken]
+        public async Task<IActionResult> SetStatus(int id)
+        {
+            List<Banner> dbModel = await _context.Banners.Where(m => m.IsActive).ToListAsync();
+
+            if (dbModel.Count < 10)
+            {
+                Banner model = await _context.Banners.FirstOrDefaultAsync(m => m.Id == id);
+
+                if (model is null) return NotFound();
+
+                if (model.IsActive)
+                {
+                    model.IsActive = false;
+                }
+                else
+                {
+                    model.IsActive = true;
+                }
+
+                await _context.SaveChangesAsync();
+
+                return RedirectToAction(nameof(Index));
+            }
+            else
+            {
+                Banner model = await _context.Banners.FirstOrDefaultAsync(m => m.Id == id);
+                if (model.IsActive)
+                {
+                    model.IsActive = false;
+                }
+
+                await _context.SaveChangesAsync();
+
+                return RedirectToAction(nameof(Index));
+            }
+
+
+        }
+
         private async Task<List<Banner>> GetByIdToLIstAsync(int id)
         {
             return await _context.Banners.Where(m => !m.IsDeleted && m.Id == id).ToListAsync();

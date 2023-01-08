@@ -208,7 +208,7 @@ namespace FinalProject.Areas.AdminArea.Controllers
         {
             List<AboutBottom> dbBottom = await _context.AboutBottoms.Where(m => m.IsActive).ToListAsync();
 
-            if (dbBottom.Count < 1)
+            if (dbBottom.Count < 10)
             {
                 AboutBottom bottom = await _context.AboutBottoms.FirstOrDefaultAsync(m => m.Id == id);
 

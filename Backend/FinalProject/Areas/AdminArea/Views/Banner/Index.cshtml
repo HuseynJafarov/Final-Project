@@ -23,6 +23,9 @@
                     <th>
                         Description
                     </th>
+                    <th>
+                        On/Off
+                    </th>
                     <th style="text-align: center;">
                         Settings
                     </th>
@@ -41,7 +44,21 @@
                         <td>
                             @Html.Raw(item?.Description)
                         </td>
+                        <td>
+                            @if (item.IsActive)
+                            {
+                                <img src="~/assets/images/online.png" style="width: 30px !important; height: 30px !important " alt="online" />
+                            }
+                            else
+                            {
+
+                                <img src="~/assets/images/offline.png" style="width: 30px !important; height: 30px !important" alt="offline" />
+                            }
+                        </td>
                         <td style="text-align: center;">
+                            <form style="display: inline-block;" asp-action="SetStatus" asp-route-id="@item.Id" method="post">
+                            <button type="submit" class="btn btn-outline-success">On / Off</button>
+                            </form>
                             <a asp-action="Details" asp-route-id="@item?.Id" class="btn btn-info"><i class="mdi mdi-information mx-0"></i></a>
                             <a asp-action="Edit" asp-route-id="@item?.Id" class="btn btn-primary"><i class="mdi mdi-table-edit"></i></a>
                             <form style="display: inline-block;" asp-action="Delete" asp-route-id="@item?.Id" method="post">

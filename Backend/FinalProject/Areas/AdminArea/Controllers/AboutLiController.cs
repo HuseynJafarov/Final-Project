@@ -25,7 +25,6 @@ namespace FinalProject.Areas.AdminArea.Controllers
         {
             List<AboutLi> li = await _context.AboutLis
               .Where(m => !m.IsDeleted).ToListAsync();
-            ViewBag.count = await _context.AboutLis.Where(m => !m.IsDeleted).CountAsync();
 
 
             return View(li);
@@ -137,7 +136,6 @@ namespace FinalProject.Areas.AdminArea.Controllers
                     return RedirectToAction(nameof(Index));
                 }
 
-                // dbCategory.Name = category.Name;
 
                 _context.AboutLis.Update(aboutLi);
 
@@ -160,7 +158,7 @@ namespace FinalProject.Areas.AdminArea.Controllers
         {
             List<AboutLi> dbModel = await _context.AboutLis.Where(m => m.IsActive).ToListAsync();
 
-            if (dbModel.Count < 1)
+            if (dbModel.Count < 10)
             {
                 AboutLi model = await _context.AboutLis.FirstOrDefaultAsync(m => m.Id == id);
 

@@ -35,17 +35,17 @@ namespace FinalProject.Controllers
             int takeBlog = int.Parse(settingDatas["HomeTakeBlog"]);
 
             IEnumerable<SliderDetail> sliderDetails = await _context.SliderDetails.Where(m => !m.IsDeleted).ToListAsync();
-            IEnumerable<Service> services = await _context.Services.Where(m => !m.IsDeleted).ToListAsync();
+            IEnumerable<Service> services = await _context.Services.Where(m => !m.IsDeleted && m.IsActive).ToListAsync();
             IEnumerable<Category> categories = await _context.Categories.Where(m => !m.IsDeleted)
                     .Include(m=> m.Products).ToListAsync();
             IEnumerable<Product> products = await _context.Products
                     .Where(m => m.IsDeleted == false)
                     .Include(m => m.Category)
                     .Include(m => m.ProductImages).Take(take).ToListAsync();
-            IEnumerable<ProductInfo> productInfos = await _context.ProductInfos.Where(m => !m.IsDeleted).Take(take).ToListAsync();
-            IEnumerable<Banner> banners = await _context.Banners.Where(m => !m.IsDeleted).ToListAsync();
+            IEnumerable<ProductInfo> productInfos = await _context.ProductInfos.Where(m => !m.IsDeleted && m.IsActive).Take(take).ToListAsync();
+            IEnumerable<Banner> banners = await _context.Banners.Where(m => !m.IsDeleted && m.IsActive).ToListAsync();
             IEnumerable<Blog> blogs =await _context.Blogs.Where(m => !m.IsDeleted).Take(takeBlog).ToListAsync();
-            IEnumerable<ProductInfoDetail> productInfoDetail = await _context.ProductInfoDetails.Where(m => !m.IsDeleted).ToListAsync();
+            IEnumerable<ProductInfoDetail> productInfoDetail = await _context.ProductInfoDetails.Where(m => !m.IsDeleted && m.IsActive).ToListAsync();
 
             HomeVM model = new HomeVM
             {

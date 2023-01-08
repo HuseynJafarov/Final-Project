@@ -18,9 +18,9 @@ namespace FinalProject.Services
             _context = context;
         }
 
-        //public async Task<List<Product>> GetAll(int take)
-        //{
-        //    return await _context.Products.Where(m => !m.IsDeleted).Include(m => m.Category).Include(m => m.ProductImages).Take(take).OrderBy(m => m.Id).ToListAsync();
-        //}
+        public async Task<List<Product>> GetAll(int take = 4)
+        {
+            return await _context.Products.Where(m => !m.IsDeleted).Include(m => m.Category).Include(m => m.ProductImages).Take(take).OrderBy(m => m.Id).ToListAsync();
+        }
     }
 }

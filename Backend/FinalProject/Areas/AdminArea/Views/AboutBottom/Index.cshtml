@@ -23,6 +23,9 @@
                     <th>
                         Description
                     </th>
+                    <th>
+                        On/Off
+                    </th>
                     <th style="text-align: center;">
                         Settings
                     </th>
@@ -41,7 +44,7 @@
                         <td>
                             @Html.Raw(item?.Description)
                         </td>
-                                <td>
+                         <td>
                         @if (item.IsActive)
                         {
                                 <img src="~/assets/images/online.png" style="width: 30px !important; height: 30px !important " alt="online" />

@@ -20,9 +20,9 @@ namespace FinalProject.Controllers
         }
         public async Task<IActionResult> Index()
         {
-            AboutBottom aboutBottom = await _context.AboutBottoms.Where(m => !m.IsDeleted).FirstOrDefaultAsync();
-            AboutTop aboutTop = await _context.AboutTops.Where(m => !m.IsDeleted).FirstOrDefaultAsync();
-            IEnumerable<AboutLi> aboutLi = await _context.AboutLis.Where(m => !m.IsDeleted).ToListAsync();
+            AboutBottom aboutBottom = await _context.AboutBottoms.Where(m => !m.IsDeleted && m.IsActive).FirstOrDefaultAsync();
+            AboutTop aboutTop = await _context.AboutTops.Where(m => !m.IsDeleted && m.IsActive).FirstOrDefaultAsync();
+            IEnumerable<AboutLi> aboutLi = await _context.AboutLis.Where(m => !m.IsDeleted && m.IsActive ).ToListAsync();
 
             AboutVM model = new AboutVM
             {

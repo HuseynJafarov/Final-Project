@@ -20,8 +20,8 @@ namespace FinalProject.Controllers
         }
         public async Task<IActionResult> Index()
         {
-            IEnumerable<ContactInfo> contactInfo = await _context.ContactInfos.Where(m => !m.IsDeleted).ToListAsync();
-            ContactUs contactUs = await _context.ContactUs.Where(m => !m.IsDeleted).FirstOrDefaultAsync();
+            IEnumerable<ContactInfo> contactInfo = await _context.ContactInfos.Where(m => !m.IsDeleted && m.IsActive).ToListAsync();
+            ContactUs contactUs = await _context.ContactUs.Where(m => !m.IsDeleted && m.IsActive).FirstOrDefaultAsync();
 
             ContactUsVM model = new ContactUsVM
             {

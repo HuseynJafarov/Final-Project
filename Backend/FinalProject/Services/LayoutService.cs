@@ -25,21 +25,21 @@ namespace FinalProject.Services
 
         public async Task<IEnumerable<Social>> GEtDatasFromSocial()
         {
-            return await _context.Socials.Where(m => !m.IsDeleted).ToListAsync();
+            return await _context.Socials.Where(m => !m.IsDeleted  ).ToListAsync();
         }
 
         public async Task<IEnumerable<Service>> GEtDatasFromService()
         {
-            return await _context.Services.Where(m => !m.IsDeleted).ToListAsync();
+            return await _context.Services.Where(m => !m.IsDeleted && m.IsActive).ToListAsync();
         }
 
         public async Task<IEnumerable<FooterCategory>> GetDatasFromFooterCategory()
         {
-            return await _context.FooterCategories.Where(m => !m.IsDeleted).ToListAsync();
+            return await _context.FooterCategories.Where(m => !m.IsDeleted ).ToListAsync();
         }
         public async Task<IEnumerable<ContactInfo>> GetDatasFromContactInfo()
         {
-            return await _context.ContactInfos.Where(m => !m.IsDeleted).ToListAsync();
+            return await _context.ContactInfos.Where(m => !m.IsDeleted && m.IsActive).ToListAsync();
         }
     }
 }
