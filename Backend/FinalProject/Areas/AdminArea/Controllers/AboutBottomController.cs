@@ -2,17 +2,13 @@
 using FinalProject.Helpers;
 using FinalProject.Models;
 using FinalProject.ViewModel.AboutBottomViewModels;
-using Microsoft.AspNetCore.Components.Routing;
 using Microsoft.AspNetCore.Hosting;
-using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
-using Microsoft.Extensions.Hosting;
 using System;
 using System.Collections.Generic;
 using System.IO;
 using System.Linq;
-using System.Reflection;
 using System.Threading.Tasks;
 
 namespace FinalProject.Areas.AdminArea.Controllers
@@ -31,8 +27,7 @@ namespace FinalProject.Areas.AdminArea.Controllers
         }
         public async Task<IActionResult> Index()
         {
-            AboutBottom aboutBottoms = await _context.AboutBottoms.Where(m => !m.IsDeleted).FirstOrDefaultAsync();
-            ViewBag.count = await _context.AboutBottoms.Where(m => !m.IsDeleted).CountAsync();
+            List<AboutBottom> aboutBottoms = await _context.AboutBottoms.Where(m => !m.IsDeleted).ToListAsync();
             return View(aboutBottoms);
         }
 
@@ -205,6 +200,47 @@ namespace FinalProject.Areas.AdminArea.Controllers
             await _context.SaveChangesAsync();
 
             return RedirectToAction(nameof(Index));
+        }
+
+        [HttpPost]
+        [ValidateAntiForgeryToken]
+        public async Task<IActionResult> SetStatus(int id)
+        {
+            List<AboutBottom> dbBottom = await _context.AboutBottoms.Where(m => m.IsActive).ToListAsync();
+
+            if (dbBottom.Count < 1)
+            {
+                AboutBottom bottom = await _context.AboutBottoms.FirstOrDefaultAsync(m => m.Id == id);
+
+                if (bottom is null) return NotFound();
+
+                if (bottom.IsActive)
+                {
+                    bottom.IsActive = false;
+                }
+                else
+                {
+                    bottom.IsActive = true;
+                }
+
+                await _context.SaveChangesAsync();
+
+                return RedirectToAction(nameof(Index));
+            }
+            else
+            {
+                AboutBottom bottom = await _context.AboutBottoms.FirstOrDefaultAsync(m => m.Id == id);
+                if (bottom.IsActive)
+                {
+                    bottom.IsActive = false;
+                }
+
+                await _context.SaveChangesAsync();
+
+                return RedirectToAction(nameof(Index));
+            }
+
+
         }
 
         private async Task<List<AboutBottom>> GetByIdToLIstAsync(int id)

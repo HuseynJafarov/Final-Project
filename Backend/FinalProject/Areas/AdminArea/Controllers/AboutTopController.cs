@@ -26,8 +26,7 @@ namespace FinalProject.Areas.AdminArea.Controllers
 
         public async  Task<IActionResult> Index()
         {
-            AboutTop aboutTop = await _context.AboutTops.Where(m => !m.IsDeleted).FirstOrDefaultAsync();
-            ViewBag.count = await _context.AboutBottoms.Where(m => !m.IsDeleted).CountAsync();
+            List<AboutTop> aboutTop = await _context.AboutTops.Where(m => !m.IsDeleted).ToListAsync();
             return View(aboutTop); ;
         }
 
@@ -202,6 +201,47 @@ namespace FinalProject.Areas.AdminArea.Controllers
             await _context.SaveChangesAsync();
 
             return RedirectToAction(nameof(Index));
+        }
+
+        [HttpPost]
+        [ValidateAntiForgeryToken]
+        public async Task<IActionResult> SetStatus(int id)
+        {
+            List<AboutTop> dbModel = await _context.AboutTops.Where(m => m.IsActive).ToListAsync();
+
+            if (dbModel.Count < 1)
+            {
+                AboutTop model = await _context.AboutTops.FirstOrDefaultAsync(m => m.Id == id);
+
+                if (model is null) return NotFound();
+
+                if (model.IsActive)
+                {
+                    model.IsActive = false;
+                }
+                else
+                {
+                    model.IsActive = true;
+                }
+
+                await _context.SaveChangesAsync();
+
+                return RedirectToAction(nameof(Index));
+            }
+            else
+            {
+                AboutTop model = await _context.AboutTops.FirstOrDefaultAsync(m => m.Id == id);
+                if (model.IsActive)
+                {
+                    model.IsActive = false;
+                }
+
+                await _context.SaveChangesAsync();
+
+                return RedirectToAction(nameof(Index));
+            }
+
+
         }
 
 

@@ -5,6 +5,7 @@ namespace FinalProject.Models
 {
     public class AboutTop:BaseEntity
     {
+        public bool IsActive { get; set; } = false;
         public string Image { get; set; }
         public string SubTitle { get; set; }
         public string Title { get; set; }

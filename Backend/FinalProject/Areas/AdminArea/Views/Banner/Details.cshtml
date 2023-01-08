@@ -1,0 +1,43 @@
+﻿@model Banner
+@{
+    ViewData["Title"] = "Details";
+    Layout = "~/Areas/AdminArea/Views/Shared/_AdminLayout.cshtml";
+}
+
+<div class="container my-5">
+    <div class="card">
+        <div class="card-header">
+            Banner detail
+        </div>
+        <table class="table table-bordered">
+            <thead>
+                <tr>
+                    <th>
+                        Image
+                    </th>
+                    <th>
+                        Title
+                    </th>
+                    <th>
+                        Description
+                    </th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td>
+                        <img src="~/assets/images/demos/demo1/banner/@Model.Image" style="width:200px; height:200px" alt="Alternate Text" />
+                    </td>
+                    <td>
+                        @Html.Raw(Model.Title)
+                    </td>
+                    <td>
+                        @Html.Raw(Model.Description)
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+
+    </div>
+</div>
+

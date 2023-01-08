@@ -154,5 +154,46 @@ namespace FinalProject.Areas.AdminArea.Controllers
             }
         }
 
+        [HttpPost]
+        [ValidateAntiForgeryToken]
+        public async Task<IActionResult> SetStatus(int id)
+        {
+            List<AboutLi> dbModel = await _context.AboutLis.Where(m => m.IsActive).ToListAsync();
+
+            if (dbModel.Count < 1)
+            {
+                AboutLi model = await _context.AboutLis.FirstOrDefaultAsync(m => m.Id == id);
+
+                if (model is null) return NotFound();
+
+                if (model.IsActive)
+                {
+                    model.IsActive = false;
+                }
+                else
+                {
+                    model.IsActive = true;
+                }
+
+                await _context.SaveChangesAsync();
+
+                return RedirectToAction(nameof(Index));
+            }
+            else
+            {
+                AboutLi model = await _context.AboutLis.FirstOrDefaultAsync(m => m.Id == id);
+                if (model.IsActive)
+                {
+                    model.IsActive = false;
+                }
+
+                await _context.SaveChangesAsync();
+
+                return RedirectToAction(nameof(Index));
+            }
+
+
+        }
+
     }
 }
