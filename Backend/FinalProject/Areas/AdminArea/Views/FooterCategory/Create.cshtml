@@ -1,0 +1,49 @@
+﻿@model FooterCategory
+@{
+    ViewData["Title"] = "Create";
+    Layout = "~/Areas/AdminArea/Views/Shared/_AdminLayout.cshtml";
+
+}
+
+
+<div class="main-panel">
+    <div class="content-wrapper">
+        <div class="row">
+            <span class="text-danger">@ViewBag.Message</span>
+            <div class="col-md-12 grid-margin stretch-card">
+                <div class="card">
+                    <div class="card-body">
+                        <p class="card-description">
+                            FooterCategory
+                        </p>
+                        <form asp-controller="FooterCategory" asp-action="Create" class="forms-sample" method="post">
+                            <div class="form-group">
+                                <label for="name">Name</label>
+                                @*<input maxlength="" minlength="" type="text" class="form-control" asp-for="Name">*@
+                                <textarea class="form-control" asp-for="Name" id="footerCategory-name" rows="8"></textarea>
+
+                                <span class="text-danger my-1" asp-validation-for="Name"></span>
+                            </div>
+                            <button type="submit" class="btn btn-primary mr-2">Submit</button>
+                            <a asp-controller="FooterCategory" asp-action="Index" class="btn btn-light">Cancel</a>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+@section Scriptss{
+    <partial name="_ValidationPartial" />
+    <script src="~/assets/ckeditor/ckeditor.js"></script>
+
+    <script>
+        CKEDITOR.replace("footerCategory-name");
+    </script>
+
+
+}
+
+
