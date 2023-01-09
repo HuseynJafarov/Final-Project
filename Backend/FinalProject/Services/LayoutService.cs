@@ -25,7 +25,7 @@ namespace FinalProject.Services
 
         public async Task<IEnumerable<Social>> GEtDatasFromSocial()
         {
-            return await _context.Socials.Where(m => !m.IsDeleted  ).ToListAsync();
+            return await _context.Socials.Where(m => !m.IsDeleted).ToListAsync();
         }
 
         public async Task<IEnumerable<Service>> GEtDatasFromService()

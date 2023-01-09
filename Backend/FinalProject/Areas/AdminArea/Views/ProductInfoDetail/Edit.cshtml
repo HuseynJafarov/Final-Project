@@ -1,4 +1,4 @@
-﻿@model ProductDetail
+﻿@model ProductInfoDetail
 @{
     ViewData["Title"] = "Edit";
     Layout = "~/Areas/AdminArea/Views/Shared/_AdminLayout.cshtml";
@@ -12,22 +12,12 @@
                 <div class="card">
                     <div class="card-body">
                         <p class="card-description">
-                            ProductDetail
+                            ProductInfoDetail
                         </p>
                         <div class="my-3 images">
-                            <img src="~/assets/images/products/product-single/banner/@Model.Image" style="width:250px; height:250px" alt="Alternate Text" />
+                            <img src="~/assets/images/demos/demo1/banner/@Model.Image" style="width:250px; height:250px" alt="Alternate Text" />
                         </div>
-                        <form asp-controller="ProductDetail" asp-action="Edit" enctype="multipart/form-data" class="forms-sample" method="post">
-                            <div class="form-group">
-                                <label asp-for="HeaderTitle">HeaderTitle</label>
-                                <input class="form-control" asp-for="HeaderTitle">
-                                <span asp-validation-for="HeaderTitle" class="text-danger my-1"></span>
-                            </div>
-                            <div class="form-group">
-                                <label asp-for="HeaderDescription">HeaderDescription</label>
-                                <input class="form-control" asp-for="HeaderDescription">
-                                <span asp-validation-for="HeaderDescription" class="text-danger my-1"></span>
-                            </div>
+                        <form asp-controller="ProductInfoDetail" asp-action="Edit" enctype="multipart/form-data" class="forms-sample" method="post">
                             <div class="form-group">
                                 <label asp-for="Title">Title</label>
                                 <input class="form-control" asp-for="Title">
@@ -44,7 +34,7 @@
                                 <span asp-validation-for="Photo" class="text-danger my-1"></span>
                             </div>
                             <button type="submit" class="btn btn-primary mr-2">Submit</button>
-                            <a asp-controller="ProductDetail" asp-action="Index" class="btn btn-light">Cancel</a>
+                            <a asp-controller="ProductInfoDetail" asp-action="Index" class="btn btn-light">Cancel</a>
                         </form>
                     </div>
                 </div>

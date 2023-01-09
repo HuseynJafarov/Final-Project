@@ -14,20 +14,20 @@ using Microsoft.EntityFrameworkCore;
 namespace FinalProject.Areas.AdminArea.Controllers
 {
     [Area("AdminArea")]
-    public class ProductDetailController : Controller
+    public class ProductInfoDetailController : Controller
     {
         private readonly AppDbContext _context;
         private readonly IWebHostEnvironment _env;
 
-        public ProductDetailController(AppDbContext context, IWebHostEnvironment env)
+        public ProductInfoDetailController(AppDbContext context, IWebHostEnvironment env)
         {
             _context = context;
             _env = env;
         }
         public async Task<IActionResult> Index()
         {
-            IEnumerable<ProductDetail> details = await _context.ProductDetails.Where(m => !m.IsDeleted).ToListAsync();
-            return View(details);
+            IEnumerable<ProductInfoDetail> productInfos = await _context.ProductInfoDetails.Where(m => !m.IsDeleted).ToListAsync();
+            return View(productInfos);
         }
 
         public async Task<IActionResult> Details(int? id)
@@ -36,11 +36,11 @@ namespace FinalProject.Areas.AdminArea.Controllers
             {
                 if (id is null) return BadRequest();
 
-                ProductDetail detail = await _context.ProductDetails.FirstOrDefaultAsync(m => m.Id == id);
+                ProductInfoDetail productInfos = await _context.ProductInfoDetails.FirstOrDefaultAsync(m => m.Id == id);
 
-                if (detail is null) return NotFound();
+                if (productInfos is null) return NotFound();
 
-                return View(detail);
+                return View(productInfos);
 
             }
             catch (Exception ex)
@@ -54,9 +54,10 @@ namespace FinalProject.Areas.AdminArea.Controllers
 
         public IActionResult Create() => View();
 
+
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<ActionResult> Create(ProductDetailCreateVM createVM)
+        public async Task<ActionResult> Create(ProductInfoDetailCreateVM createVM)
         {
             if (!ModelState.IsValid) return View(createVM);
 
@@ -76,20 +77,18 @@ namespace FinalProject.Areas.AdminArea.Controllers
 
                 string fileName = Guid.NewGuid().ToString() + "_" + createVM.Photo.FileName;
 
-                string pathh = Helper.GetFilePath(_env.WebRootPath, "assets/images/products/product-single/banner", fileName);
+                string pathh = Helper.GetFilePath(_env.WebRootPath, "assets/images/demos/demo1/banner", fileName);
 
                 await Helper.SaveFile(pathh, createVM.Photo);
 
-                ProductDetail detail = new ProductDetail
+                ProductInfoDetail productInfos = new ProductInfoDetail
                 {
                     Image = fileName,
                     Description = createVM.Description,
                     Title = createVM.Title,
-                    HeaderDescription= createVM.HeaderDescription,
-                    HeaderTitle= createVM.HeaderTitle,
                 };
 
-                await _context.ProductDetails.AddAsync(detail);
+                await _context.ProductInfoDetails.AddAsync(productInfos);
 
             }
 
@@ -105,11 +104,11 @@ namespace FinalProject.Areas.AdminArea.Controllers
             {
                 if (id is null) return BadRequest();
 
-                ProductDetail detail = await _context.ProductDetails.FirstOrDefaultAsync(m => m.Id == id);
+                ProductInfoDetail productInfos = await _context.ProductInfoDetails.FirstOrDefaultAsync(m => m.Id == id);
 
-                if (detail is null) return NotFound();
+                if (productInfos is null) return NotFound();
 
-                return View(detail);
+                return View(productInfos);
 
             }
             catch (Exception ex)
@@ -122,57 +121,56 @@ namespace FinalProject.Areas.AdminArea.Controllers
 
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Edit(int id, ProductDetail detail)
+        public async Task<IActionResult> Edit(int id, ProductInfoDetail productInfos)
         {
             try
             {
                 if (!ModelState.IsValid)
                 {
-                    return View(detail);
+                    return View(productInfos);
                 }
 
-                if (detail.Photo != null)
+                if (productInfos.Photo != null)
                 {
-                    if (!detail.Photo.CheckFileType("image/"))
+                    if (!productInfos.Photo.CheckFileType("image/"))
                     {
                         ModelState.AddModelError("Photo", "Please choose correct image type");
                         return View();
                     }
 
-                    if (!detail.Photo.CheckFileSize(200))
+                    if (!productInfos.Photo.CheckFileSize(200))
                     {
                         ModelState.AddModelError("Photo", "Please choose correct image size");
                         return View();
                     }
 
-                    string fileName = Guid.NewGuid().ToString() + "_" + detail.Photo.FileName;
+                    string fileName = Guid.NewGuid().ToString() + "_" + productInfos.Photo.FileName;
 
-                    ProductDetail dbDetail = await _context.ProductDetails.AsNoTracking().FirstOrDefaultAsync(m => m.Id == id);
+                    ProductInfoDetail dbProductInfos = await _context.ProductInfoDetails.AsNoTracking().FirstOrDefaultAsync(m => m.Id == id);
 
-                    if (dbDetail is null) return NotFound();
+                    if (dbProductInfos is null) return NotFound();
 
-                    if (dbDetail.Title.Trim().ToLower() == detail.Title.Trim().ToLower()
-                        && dbDetail.Description.Trim().ToLower() == detail.Description.Trim().ToLower()
-                        && dbDetail.Photo == detail.Photo && dbDetail.HeaderDescription.Trim().ToLower() == detail.HeaderDescription.Trim().ToLower()
-                        && dbDetail.HeaderTitle.Trim().ToLower() == detail.HeaderTitle.Trim().ToLower())
+                    if (dbProductInfos.Title.Trim().ToLower() == productInfos.Title.Trim().ToLower()
+                        && dbProductInfos.Description.Trim().ToLower() == productInfos.Description.Trim().ToLower()
+                        && dbProductInfos.Photo == productInfos.Photo)
                     {
                         return RedirectToAction(nameof(Index));
                     }
 
-                    string path = Helper.GetFilePath(_env.WebRootPath, "assets/images/products/product-single/banner", fileName);
+                    string path = Helper.GetFilePath(_env.WebRootPath, "assets/images/demos/demo1/banner", fileName);
 
                     using (FileStream stream = new FileStream(path, FileMode.Create))
                     {
-                        await detail.Photo.CopyToAsync(stream);
+                        await productInfos.Photo.CopyToAsync(stream);
                     }
 
-                    detail.Image = fileName;
+                    productInfos.Image = fileName;
 
-                    _context.ProductDetails.Update(detail);
+                    _context.ProductInfoDetails.Update(productInfos);
 
                     await _context.SaveChangesAsync();
 
-                    string dbPath = Helper.GetFilePath(_env.WebRootPath, "assets/images/products/product-single/banner", dbDetail.Image);
+                    string dbPath = Helper.GetFilePath(_env.WebRootPath, "assets/images/demos/demo1/banner", dbProductInfos.Image);
 
                     Helper.DeleteFile(dbPath);
                 }
@@ -190,18 +188,58 @@ namespace FinalProject.Areas.AdminArea.Controllers
         [ValidateAntiForgeryToken]
         public async Task<IActionResult> Delete(int id)
         {
-            ProductDetail detail = await _context.ProductDetails
+            ProductInfoDetail productInfos = await _context.ProductInfoDetails
                .Where(m => !m.IsDeleted && m.Id == id)
                .FirstOrDefaultAsync();
 
-            if (detail == null) return NotFound();
+            if (productInfos == null) return NotFound();
 
-            detail.IsDeleted = true;
+            productInfos.IsDeleted = true;
 
             await _context.SaveChangesAsync();
 
             return RedirectToAction(nameof(Index));
         }
 
+        [HttpPost]
+        [ValidateAntiForgeryToken]
+        public async Task<IActionResult> SetStatus(int id)
+        {
+            List<ProductInfoDetail> dbModel = await _context.ProductInfoDetails.Where(m => m.IsActive).ToListAsync();
+
+            if (dbModel.Count < 10)
+            {
+                ProductInfoDetail model = await _context.ProductInfoDetails.FirstOrDefaultAsync(m => m.Id == id);
+
+                if (model is null) return NotFound();
+
+                if (model.IsActive)
+                {
+                    model.IsActive = false;
+                }
+                else
+                {
+                    model.IsActive = true;
+                }
+
+                await _context.SaveChangesAsync();
+
+                return RedirectToAction(nameof(Index));
+            }
+            else
+            {
+                ProductInfoDetail model = await _context.ProductInfoDetails.FirstOrDefaultAsync(m => m.Id == id);
+                if (model.IsActive)
+                {
+                    model.IsActive = false;
+                }
+
+                await _context.SaveChangesAsync();
+
+                return RedirectToAction(nameof(Index));
+            }
+
+
+        }
     }
 }

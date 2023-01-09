@@ -1,4 +1,4 @@
-﻿@model ProductDetail
+﻿@model ProductInfo
 @{
     ViewData["Title"] = "Details";
     Layout = "~/Areas/AdminArea/Views/Shared/_AdminLayout.cshtml";
@@ -7,43 +7,32 @@
 <div class="container my-5">
     <div class="card">
         <div class="card-header">
-            ProductDetail detail
+            ProductInfo detail
         </div>
         <table class="table table-bordered">
             <thead>
                 <tr>
-                    <th>
-                        Image
-                    </th>
-                    <th>
-                        HeaderTitle
-                    </th><th>
-                        HeaderDescription
-                    </th>
                     <th>
                         Title
                     </th>
                     <th>
                         Description
                     </th>
+                    <th>
+                        Icon
+                    </th>
                 </tr>
             </thead>
             <tbody>
                 <tr>
                     <td>
-                        <img src="~/assets/images/products/product-single/banner/@Model.Image" style="width:200px; height:200px" alt="Alternate Text" />
-                    </td>
-                    <td>
-                        @Html.Raw(Model.HeaderTitle)
-                    </td>
-                    <td>
-                        @Html.Raw(Model.HeaderDescription)
-                    </td>
-                    <td>
                         @Html.Raw(Model.Title)
                     </td>
                     <td>
                         @Html.Raw(Model.Description)
+                    </td>
+                    <td>
+                        @Html.Raw(Model.Icon)
                     </td>
                 </tr>
             </tbody>
@@ -51,4 +40,5 @@
 
     </div>
 </div>
+
 
