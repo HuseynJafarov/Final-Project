@@ -227,3 +227,11 @@ C:\Users\HP\Desktop\CodeAcademy\FinalProject\Backend\FinalProject\obj\Debug\netc
 C:\Users\HP\Desktop\CodeAcademy\FinalProject\Backend\FinalProject\obj\Debug\netcoreapp3.1\Razor\Areas\AdminArea\Views\ContactUs\Details.cshtml.g.cs
 C:\Users\HP\Desktop\CodeAcademy\FinalProject\Backend\FinalProject\obj\Debug\netcoreapp3.1\Razor\Areas\AdminArea\Views\ContactUs\Edit.cshtml.g.cs
 C:\Users\HP\Desktop\CodeAcademy\FinalProject\Backend\FinalProject\obj\Debug\netcoreapp3.1\Razor\Areas\AdminArea\Views\ContactUs\Index.cshtml.g.cs
+C:\Users\HP\Desktop\CodeAcademy\FinalProject\Backend\FinalProject\obj\Debug\netcoreapp3.1\Razor\Areas\AdminArea\Views\FooterCategory\Index.cshtml.g.cs
+C:\Users\HP\Desktop\CodeAcademy\FinalProject\Backend\FinalProject\obj\Debug\netcoreapp3.1\Razor\Areas\AdminArea\Views\FooterCategory\Create.cshtml.g.cs
+C:\Users\HP\Desktop\CodeAcademy\FinalProject\Backend\FinalProject\obj\Debug\netcoreapp3.1\Razor\Areas\AdminArea\Views\FooterCategory\Detail.cshtml.g.cs
+C:\Users\HP\Desktop\CodeAcademy\FinalProject\Backend\FinalProject\obj\Debug\netcoreapp3.1\Razor\Areas\AdminArea\Views\FooterCategory\Edit.cshtml.g.cs
+C:\Users\HP\Desktop\CodeAcademy\FinalProject\Backend\FinalProject\obj\Debug\netcoreapp3.1\Razor\Areas\AdminArea\Views\ProductDetail\Index.cshtml.g.cs
+C:\Users\HP\Desktop\CodeAcademy\FinalProject\Backend\FinalProject\obj\Debug\netcoreapp3.1\Razor\Areas\AdminArea\Views\ProductDetail\Details.cshtml.g.cs
+C:\Users\HP\Desktop\CodeAcademy\FinalProject\Backend\FinalProject\obj\Debug\netcoreapp3.1\Razor\Areas\AdminArea\Views\ProductDetail\Create.cshtml.g.cs
+C:\Users\HP\Desktop\CodeAcademy\FinalProject\Backend\FinalProject\obj\Debug\netcoreapp3.1\Razor\Areas\AdminArea\Views\ProductDetail\Edit.cshtml.g.cs

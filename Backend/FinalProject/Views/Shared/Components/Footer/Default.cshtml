@@ -7,7 +7,7 @@
                 @foreach (var category in Model.FooterCategories)
                 {
                    <li>
-                         <a asp-controller="Home" asp-action="Index">@category.Name</a>
+                         <a asp-controller="Home" asp-action="Index">@Html.Raw(category.Name)</a>
                    </li>
                 }
                

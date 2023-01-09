@@ -5,10 +5,6 @@
   </PropertyGroup>
 
   <ItemGroup>
-    <Content Remove="Areas\AdminArea\Views\FooterCategory\Create.cshtml" />
-    <Content Remove="Areas\AdminArea\Views\FooterCategory\Detail.cshtml" />
-    <Content Remove="Areas\AdminArea\Views\FooterCategory\Edit.cshtml" />
-    <Content Remove="Areas\AdminArea\Views\FooterCategory\Index.cshtml" />
     <Content Remove="wwwroot\assets\js\active.js" />
   </ItemGroup>
 
@@ -17,10 +13,6 @@
     <None Include="Areas\AdminArea\Views\Category\Detail.cshtml" />
     <None Include="Areas\AdminArea\Views\Category\Edit.cshtml" />
     <None Include="Areas\AdminArea\Views\Category\Index.cshtml" />
-    <None Include="Areas\AdminArea\Views\FooterCategory\Create.cshtml" />
-    <None Include="Areas\AdminArea\Views\FooterCategory\Detail.cshtml" />
-    <None Include="Areas\AdminArea\Views\FooterCategory\Edit.cshtml" />
-    <None Include="Areas\AdminArea\Views\FooterCategory\Index.cshtml" />
     <None Include="Areas\AdminArea\Views\Shop\Create.cshtml" />
     <None Include="Areas\AdminArea\Views\Shop\Details.cshtml" />
     <None Include="Areas\AdminArea\Views\Shop\Edit.cshtml" />
