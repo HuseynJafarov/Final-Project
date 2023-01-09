@@ -245,3 +245,4 @@ C:\Users\HP\Desktop\CodeAcademy\FinalProject\Backend\FinalProject\obj\Debug\netc
 C:\Users\HP\Desktop\CodeAcademy\FinalProject\Backend\FinalProject\obj\Debug\netcoreapp3.1\Razor\Areas\AdminArea\Views\ProductInfoDetail\Edit.cshtml.g.cs
 C:\Users\HP\Desktop\CodeAcademy\FinalProject\Backend\FinalProject\obj\Debug\netcoreapp3.1\Razor\Areas\AdminArea\Views\Service\Index.cshtml.g.cs
 C:\Users\HP\Desktop\CodeAcademy\FinalProject\Backend\FinalProject\obj\Debug\netcoreapp3.1\Razor\Areas\AdminArea\Views\Service\Create.cshtml.g.cs
+C:\Users\HP\Desktop\CodeAcademy\FinalProject\Backend\FinalProject\obj\Debug\netcoreapp3.1\Razor\Areas\AdminArea\Views\Service\Details.cshtml.g.cs
