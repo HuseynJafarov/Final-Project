@@ -247,3 +247,7 @@ C:\Users\HP\Desktop\CodeAcademy\FinalProject\Backend\FinalProject\obj\Debug\netc
 C:\Users\HP\Desktop\CodeAcademy\FinalProject\Backend\FinalProject\obj\Debug\netcoreapp3.1\Razor\Areas\AdminArea\Views\Service\Create.cshtml.g.cs
 C:\Users\HP\Desktop\CodeAcademy\FinalProject\Backend\FinalProject\obj\Debug\netcoreapp3.1\Razor\Areas\AdminArea\Views\Service\Details.cshtml.g.cs
 C:\Users\HP\Desktop\CodeAcademy\FinalProject\Backend\FinalProject\obj\Debug\netcoreapp3.1\Razor\Areas\AdminArea\Views\Service\Edit.cshtml.g.cs
+C:\Users\HP\Desktop\CodeAcademy\FinalProject\Backend\FinalProject\obj\Debug\netcoreapp3.1\Razor\Areas\AdminArea\Views\Social\Index.cshtml.g.cs
+C:\Users\HP\Desktop\CodeAcademy\FinalProject\Backend\FinalProject\obj\Debug\netcoreapp3.1\Razor\Areas\AdminArea\Views\Social\Create.cshtml.g.cs
+C:\Users\HP\Desktop\CodeAcademy\FinalProject\Backend\FinalProject\obj\Debug\netcoreapp3.1\Razor\Areas\AdminArea\Views\Social\Detail.cshtml.g.cs
+C:\Users\HP\Desktop\CodeAcademy\FinalProject\Backend\FinalProject\obj\Debug\netcoreapp3.1\Razor\Areas\AdminArea\Views\Social\Edit.cshtml.g.cs

@@ -1,7 +1,7 @@
-﻿@model Category
-
+﻿@model Social
 @{
     ViewData["Title"] = "Edit";
+    Layout = "~/Areas/AdminArea/Views/Shared/_AdminLayout.cshtml";
 }
 
 <div class="main-panel">
@@ -12,16 +12,21 @@
                 <div class="card">
                     <div class="card-body">
                         <p class="card-description">
-                            Category
+                            Social
                         </p>
-                        <form asp-controller="Category" asp-action="Edit" class="forms-sample" method="post">
+                        <form asp-controller="Social" asp-action="Edit" class="forms-sample" method="post">
                             <div class="form-group">
                                 <label asp-for="Name">Name</label>
-                                <input  type="text" class="form-control" asp-for="Name">
+                                <input type="text" class="form-control" asp-for="Name">
                                 <span class="text-danger my-1" asp-validation-for="Name"></span>
                             </div>
+                              <div class="form-group">
+                                <label asp-for="Icon">Icon</label>
+                                <input type="text" class="form-control" asp-for="Icon">
+                                <span class="text-danger my-1" asp-validation-for="Icon"></span>
+                            </div>
                             <button type="submit" class="btn btn-primary mr-2">Submit</button>
-                            <a asp-controller="Category" asp-action="Index" class="btn btn-light">Cancel</a>
+                            <a asp-controller="Social" asp-action="Index" class="btn btn-light">Cancel</a>
                         </form>
                     </div>
                 </div>
@@ -31,6 +36,6 @@
 </div>
 @section Scripts{
 
-  <partial name="_ValidationPartial"/>
+    <partial name="_ValidationPartial" />
 }
 
