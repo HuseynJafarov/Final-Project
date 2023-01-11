@@ -7,6 +7,9 @@ using System.Collections.Generic;
 using System.Threading.Tasks;
 using System.Linq;
 using Microsoft.EntityFrameworkCore;
+using FinalProject.Models;
+using Microsoft.AspNetCore.Identity;
+using Org.BouncyCastle.Bcpg;
 
 namespace FinalProject.Controllers
 {
@@ -58,6 +61,7 @@ namespace FinalProject.Controllers
                 return View(basketDetail);
             }
         }
+
 
         [HttpPost]
         [ValidateAntiForgeryToken]
