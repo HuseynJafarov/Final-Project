@@ -62,7 +62,6 @@ namespace FinalProject.Controllers
             return View(model);
         }
 
-
         [HttpPost]
         public async Task<IActionResult> AddBasket(int? id)
         {
@@ -98,7 +97,6 @@ namespace FinalProject.Controllers
 
             return RedirectToAction("Index");
         }
-
        
         public IActionResult Search(string search)
         {

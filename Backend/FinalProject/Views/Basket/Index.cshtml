@@ -2,6 +2,7 @@
 @{
     ViewData["Title"] = "Index";
     Layout = "~/Views/Shared/_Layout.cshtml";
+    decimal endTotal = 0;
 }
 
 <main class="main cart">
@@ -54,8 +55,9 @@
                                             <a data-id="@product.Id" class="up" id="upbtn"><i class="fas fa-chevron-right"></i></a>
                                         </div>
                                     </td>
+
                                     <td class="product-subtotal">
-                                        <span class="amount">$129.99</span>
+                                        <span class="amount">$@((product.Total - ((product.Total * product.Discount) / 100)).ToString("##.00"))</span>
                                     </td>
                                     <td class="product-remove">
                                         <form asp-controller="Basket" asp-action="Delete" asp-route-id="@product.Id" method="post">
@@ -85,11 +87,16 @@
                             <h3 class="summary-title">Cart Totals</h3>
                             <table class="shipping mb-2">
                                 <tr class="summary-subtotal">
+                                    @foreach (var total in Model)
+                                    {
+                                        endTotal += total.Total - ((total.Total * total.Discount) / 100);
+
+                                    }
                                     <td>
                                         <h4 class="summary-subtitle">Subtotal</h4>
                                     </td>
                                     <td>
-                                        <p class="summary-subtotal-price">$227.99</p>
+                                        <p class="summary-subtotal-price">$@endTotal.ToString("##.00")</p>
                                     </td>
                                 </tr>
 

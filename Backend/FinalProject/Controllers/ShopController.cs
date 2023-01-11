@@ -25,7 +25,7 @@ namespace FinalProject.Controllers
             _context = context;
             _layoutService = layoutService;
         }
-        public async Task<IActionResult> Index(int page = 1)
+        public async Task<IActionResult> Index(int page=1)
         {
 
 

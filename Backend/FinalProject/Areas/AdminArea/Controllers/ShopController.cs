@@ -18,7 +18,7 @@ using Microsoft.AspNetCore.Mvc.Rendering;
 namespace FinalProject.Areas.AdminArea.Controllers
 {
     [Area("AdminArea")]
-
+    [Authorize(Roles = "SuperAdmin,Admin")]
     public class ShopController : Controller
     {
         private readonly AppDbContext _context;

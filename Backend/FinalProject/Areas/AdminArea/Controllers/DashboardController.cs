@@ -7,7 +7,7 @@ namespace FinalProject.Areas.AdminArea.Controllers
     public class DashboardController : Controller
     {
         [Area("AdminArea")]
-        //[Authorize(Roles = "SuperAdmin,Admin")]
+        [Authorize(Roles = "SuperAdmin,Admin")]
         public IActionResult Index()
         {
             return View();

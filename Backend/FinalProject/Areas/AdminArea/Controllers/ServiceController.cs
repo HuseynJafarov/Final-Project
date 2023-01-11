@@ -6,10 +6,13 @@ using System;
 using FinalProject.Models;
 using System.Linq;
 using Microsoft.EntityFrameworkCore;
+using FinalProject.Helpers.Enums;
+using Microsoft.AspNetCore.Authorization;
 
 namespace FinalProject.Areas.AdminArea.Controllers
 {
     [Area("AdminArea")]
+    [Authorize(Roles = "SuperAdmin,Admin")]
     public class ServiceController : Controller
     {
         private readonly AppDbContext _context;

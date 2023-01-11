@@ -62,6 +62,21 @@ namespace FinalProject.Controllers
             }
         }
 
+        //public async Task<IActionResult> Down(int id)
+        //{
+        //    Product product = _context.Products.Where(m => !m.IsDeleted).FirstOrDefault();
+        //    BasketVM basketItems = new BasketVM
+        //    {
+        //        Id = product.Id,
+
+        //    };
+        //    basketItems.Count++;
+        //    return
+        //}
+        //public async Task<IActionResult> Up(int id)
+        //{
+        //    return
+        //}
 
         [HttpPost]
         [ValidateAntiForgeryToken]

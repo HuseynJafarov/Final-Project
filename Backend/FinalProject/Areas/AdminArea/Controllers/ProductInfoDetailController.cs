@@ -10,10 +10,13 @@ using System.Threading.Tasks;
 using System;
 using System.Linq;
 using Microsoft.EntityFrameworkCore;
+using FinalProject.Helpers.Enums;
+using Microsoft.AspNetCore.Authorization;
 
 namespace FinalProject.Areas.AdminArea.Controllers
 {
     [Area("AdminArea")]
+    [Authorize(Roles = "SuperAdmin,Admin")]
     public class ProductInfoDetailController : Controller
     {
         private readonly AppDbContext _context;
