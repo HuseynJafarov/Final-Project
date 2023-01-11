@@ -8,9 +8,23 @@
         <div class="card-header">
             Category detail 
         </div>
-        <div class="card-body">
-            <p class="card-text">@Model.Name</p>
-        </div>
+        <table class="table table-bordered">
+            <thead>
+                <tr>
+                    <th>
+                        Name
+                    </th>
+
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td>
+                        @Html.Raw(Model.Name)
+                    </td>
+                </tr>
+            </tbody>
+        </table>
     </div>
 </div>
 

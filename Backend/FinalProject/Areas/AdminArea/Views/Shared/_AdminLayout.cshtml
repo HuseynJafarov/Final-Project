@@ -1,27 +1,18 @@
 ﻿
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
-    <!-- Required meta tags -->
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
     <title>Majestic Admin</title>
-    <!-- plugins:css -->
     <link rel="stylesheet" href="~/admin/vendors/mdi/css/materialdesignicons.min.css">
     <link rel="stylesheet" href="~/admin/vendors/base/vendor.bundle.base.css">
-    <!-- endinject -->
-    <!-- plugin css for this page -->
     <link rel="stylesheet" href="~/admin/vendors/datatables.net-bs4/dataTables.bootstrap4.css">
-    <!-- End plugin css for this page -->
-    <!-- inject:css -->
     <link rel="stylesheet" href="~/admin/css/style.css">
-    <!-- endinject -->
     <link rel="shortcut icon" href="~/admin/images/favicon.png" />
 </head>
 <body>
     <div class="container-scroller">
-        <!-- partial:partials/_navbar.html -->
         <nav class="navbar col-lg-12 col-12 p-0 fixed-top d-flex flex-row">
             <div class="navbar-brand-wrapper d-flex justify-content-center">
                 <div class="navbar-brand-inner-wrapper d-flex justify-content-between align-items-center w-100">
@@ -164,14 +155,12 @@
                 </button>
             </div>
         </nav>
-        <!-- partial -->
         <div class="container-fluid page-body-wrapper">
-            <!-- partial:partials/_sidebar.html -->
             <nav class="sidebar sidebar-offcanvas" id="sidebar">
                 <ul class="nav">
                     <li class="nav-item">
                         <a class="nav-link" asp-area="AdminArea" asp-controller="Dashboard" asp-action="Index">
-                            <i class="mdi mdi-home menu-icon"></i>
+                            <i class="mdi mdi-account menu-icon"></i>
                             <span class="menu-title">Dashboard</span>
                         </a>
                     </li>
@@ -189,18 +178,16 @@
                                 <li class="nav-item"> <a class="nav-link" asp-area="AdminArea" asp-controller="ProductInfo" asp-action="Index">ProductInfo</a></li>
                                 <li class="nav-item"> <a class="nav-link" asp-area="AdminArea" asp-controller="ProductInfoDetail" asp-action="Index">ProductInfoDetail</a></li>
                                 <li class="nav-item"> <a class="nav-link" asp-area="AdminArea" asp-controller="Service" asp-action="Index">Service</a></li>
-
-
                             </ul>
                         </div>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" data-toggle="collapse" href="#ui-basic" aria-expanded="false" aria-controls="ui-basic">
-                            <i class="mdi mdi-home menu-icon"></i>
+                        <a class="nav-link" data-toggle="collapse" href="#contact" aria-expanded="false" aria-controls="contact">
+                            <i class="mdi mdi-emoticon menu-icon"></i>
                             <span class="menu-title">Contact Page</span>
                             <i class="menu-arrow"></i>
                         </a>
-                        <div class="collapse" id="ui-basic">
+                        <div class="collapse" id="contact">
                             <ul class="nav flex-column sub-menu">
                                 <li class="nav-item"> <a class="nav-link" asp-area="AdminArea" asp-controller="ContactInfo" asp-action="Index">ContactInfo</a></li>
                                 <li class="nav-item"> <a class="nav-link" asp-area="AdminArea" asp-controller="ContactUs" asp-action="Index">ContactUs</a></li>
@@ -208,37 +195,25 @@
                             </ul>
                         </div>
                     </li>
-                         <li class="nav-item">
-                        <a class="nav-link" data-toggle="collapse" href="#ui-basic" aria-expanded="false" aria-controls="ui-basic">
-                            <i class="mdi mdi-home menu-icon"></i>
-                            <span class="menu-title">Product</span>
-                            <i class="menu-arrow"></i>
+                    <li class="nav-item">
+                        <a class="nav-link" asp-area="AdminArea" asp-controller="ProductDetail" asp-action="Index">
+                            <i class="mdi mdi-circle-outline menu-icon"></i>
+                            <span class="menu-title">ProductDetail</span>
                         </a>
-                        <div class="collapse" id="ui-basic">
-                            <ul class="nav flex-column sub-menu">
-                                <li class="nav-item"> <a class="nav-link" asp-area="AdminArea" asp-controller="ProductDetail" asp-action="Index">ProductDetail</a></li>
-                            </ul>
-                        </div>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" data-toggle="collapse" href="#ui-basic" aria-expanded="false" aria-controls="ui-basic">
-                            <i class="mdi mdi-home menu-icon"></i>
+                        <a class="nav-link" data-toggle="collapse" href="#layout" aria-expanded="false" aria-controls="layout">
+                            <i class="mdi mdi-account menu-icon"></i>
                             <span class="menu-title">Layout</span>
                             <i class="menu-arrow"></i>
                         </a>
-                        <div class="collapse" id="ui-basic">
+                        <div class="collapse" id="layout">
                             <ul class="nav flex-column sub-menu">
                                 <li class="nav-item"> <a class="nav-link" asp-area="AdminArea" asp-controller="FooterCategory" asp-action="Index">FooterCategory</a></li>
-
+                                <li class="nav-item"> <a class="nav-link" asp-area="AdminArea" asp-controller="Social" asp-action="Index">Social</a></li>
                             </ul>
                         </div>
                     </li>
-@*                    <li class="nav-item">
-                        <a class="nav-link" asp-area="AdminArea" asp-controller="SliderDetail" asp-action="Index">
-                            <i class="mdi mdi-circle-outline menu-icon"></i>
-                            <span class="menu-title">SliderDetail</span>
-                        </a>
-                    </li>*@
                     <li class="nav-item">
                         <a class="nav-link" asp-area="AdminArea" asp-controller="Category" asp-action="Index">
                             <i class="mdi mdi-view-headline menu-icon"></i>
@@ -265,66 +240,31 @@
                             </ul>
                         </div>
                     </li>
-           @*         <li class="nav-item">
-                        <a class="nav-link" asp-area="AdminArea" asp-controller="Contact" asp-action="Index">
-                            <i class="mdi mdi-emoticon menu-icon"></i>
-                            <span class="menu-title">Contact</span>
-                        </a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link" data-toggle="collapse" href="#auth" aria-expanded="false" aria-controls="auth">
-                            <i class="mdi mdi-account menu-icon"></i>
-                            <span class="menu-title">User Pages</span>
-                            <i class="menu-arrow"></i>
-                        </a>
-                        <div class="collapse" id="auth">
-                            <ul class="nav flex-column sub-menu">
-                                <li class="nav-item"> <a class="nav-link" href="pages/samples/login.html"> Login </a></li>
-                                <li class="nav-item"> <a class="nav-link" href="pages/samples/login-2.html"> Login 2 </a></li>
-                                <li class="nav-item"> <a class="nav-link" href="pages/samples/register.html"> Register </a></li>
-                                <li class="nav-item"> <a class="nav-link" href="pages/samples/register-2.html"> Register 2 </a></li>
-                                <li class="nav-item"> <a class="nav-link" href="pages/samples/lock-screen.html"> Lockscreen </a></li>
-                            </ul>
-                        </div>
-                    </li>*@
                     <li class="nav-item">
                         <a class="nav-link" asp-area="AdminArea" asp-controller="TellUs" asp-action="Index">
                             <i class="mdi mdi-file-document-box-outline menu-icon"></i>
-                            <span class="menu-title">Documentation</span>
+                            <span class="menu-title">Comment</span>
                         </a>
                     </li>
                 </ul>
             </nav>
             @RenderBody()
         </div>
-        <!-- page-body-wrapper ends -->
     </div>
 
-    @* font- awesome *@
     <script src="https://kit.fontawesome.com/b472a11a71.js" crossorigin="anonymous"></script>
-    <!-- container-scroller -->
-    <!-- plugins:js -->
     <script src="~/admin/vendors/base/vendor.bundle.base.js"></script>
-    <!-- endinject -->
-    <!-- Plugin js for this page-->
     <script src="~/admin/vendors/chart.js/Chart.min.js"></script>
     <script src="~/admin/vendors/datatables.net/jquery.dataTables.js"></script>
     <script src="~/admin/vendors/datatables.net-bs4/dataTables.bootstrap4.js"></script>
-    <!-- End plugin js for this page-->
-    <!-- inject:js -->
     <script src="~/admin/js/off-canvas.js"></script>
     <script src="~/admin/js/hoverable-collapse.js"></script>
     <script src="~/admin/js/template.js"></script>
     @RenderSection("Scripts", required: false)
-
-   
-    <!-- endinject -->
-    <!-- Custom js for this page-->
     <script src="~/admin/js/dashboard.js"></script>
     <script src="~/admin/js/data-table.js"></script>
     <script src="~/admin/js/jquery.dataTables.js"></script>
     <script src="~/admin/js/dataTables.bootstrap4.js"></script>
-    <!-- End custom js for this page-->
 </body>
 
 </html>

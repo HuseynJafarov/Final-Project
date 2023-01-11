@@ -32,10 +32,7 @@ namespace FinalProject.Controllers
             _roleManager = roleManager;
         }
 
-        public IActionResult Login()
-        {
-            return View();
-        }
+        public IActionResult Login() => View();
 
         [HttpPost]
         [ValidateAntiForgeryToken]
@@ -70,11 +67,8 @@ namespace FinalProject.Controllers
             return RedirectToAction("Index", "Home");
         }
 
-        public IActionResult Register()
-        {
-            return View();
-        }
-
+        public IActionResult Register() => View();
+     
         [HttpPost]
         [ValidateAntiForgeryToken]
         public async Task<IActionResult> Register(RegisterVM registerVM)
@@ -133,17 +127,13 @@ namespace FinalProject.Controllers
 
             await _userManager.ConfirmEmailAsync(user, token);
 
-            await _signInManager.SignInAsync(user, false);
+            //await _signInManager.SignInAsync(user, false);
 
-            return RedirectToAction("Index", "Home");
+            return RedirectToAction("Login", "Account");
 
         }
 
-        public IActionResult VerifyEmail()
-        {
-            return View();
-        }
-
+        public IActionResult VerifyEmail() => View();
 
         public async Task<IActionResult> Logout()
         {
@@ -153,10 +143,7 @@ namespace FinalProject.Controllers
         }
 
         [HttpGet]
-        public IActionResult ForgotPassword()
-        {
-            return View();
-        }
+        public IActionResult ForgotPassword() => View();
 
         [HttpPost]
         [ValidateAntiForgeryToken]
@@ -195,9 +182,6 @@ namespace FinalProject.Controllers
 
         [HttpGet]
         public IActionResult ResetPassword(string userId, string token) => View(new ResetPasswordVM { Token = token, UserId = userId });
-
-
-
 
         [HttpPost]
         [ValidateAntiForgeryToken]
